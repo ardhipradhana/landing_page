@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montpro | Automate Your Workflow, Accelerate Your Growth</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Animate On Scroll (AOS) Library for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+        }
+        /* Define custom colors for easy use with Tailwind */
+        .bg-navy-blue { background-color: #193A6D; }
+        .text-navy-blue { color: #193A6D; }
+        .border-navy-blue { border-color: #193A6D; }
+        .bg-bright-blue { background-color: #4A90E2; }
+        .text-bright-blue { color: #4A90E2; }
+        .bg-light-gray { background-color: #F8F9FA; }
+        .text-off-black { color: #212529; }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Minor tweak for animation delays */
+        [data-aos-delay] {
+            transition-delay: var(--aos-delay);
+        }
+    </style>
+</head>
+<body class="text-off-black">
+
+    <!-- =========== HEADER / NAVIGATION =========== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <!-- Using the actual logo shape -->
+                <svg class="h-8 w-auto text-navy-blue" viewBox="0 0 162 142" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M118.14 0L81 65.4545L43.86 0H0L64.8 110.727V142H97.2V110.727L162 0H118.14Z"/>
+                </svg>
+                <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#how-it-works" class="text-gray-600 hover:text-navy-blue transition duration-300">How It Works</a>
+                <a href="#tools" class="text-gray-600 hover:text-navy-blue transition duration-300">Tools</a>
+                <a href="mailto:ardhi@aapgrp.com" class="text-gray-600 hover:text-navy-blue transition duration-300">Contact</a>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="https://calendly.com" target="_blank" class="hidden md:inline-block bg-navy-blue text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-opacity-90 transition duration-300">
+                Book a Demo
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
+    <main>
+        <!-- =========== HERO SECTION =========== -->
+        <section class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-navy-blue leading-tight" data-aos="fade-up">
+                    We Automate, You Accelerate.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                    We do the time-consuming XYZ, so you can focus on the ROI.
+                </p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <a href="#tools" class="mt-10 inline-block bg-navy-blue text-white font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-opacity-90 transform hover:-translate-y-1 transition-all duration-300">
+                        Explore Our Tools
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== HOW IT WORKS SECTION (Replaces 'Competitive Edge') =========== -->
+        <section id="how-it-works" class="py-20 bg-light-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-off-black">Stop the Manual Work. Start Seeing Results.</h2>
+                    <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Our tools integrate seamlessly into your workflow in three simple steps.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                    <!-- Step 1 -->
+                    <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-blue-100 text-bright-blue rounded-full text-2xl font-bold">1</div>
+                        <h3 class="text-xl font-semibold mt-6 mb-2">Define Your Goal</h3>
+                        <p class="text-gray-600">Tell the tool what you're looking for—whether it's a candidate profile or a job description.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-blue-100 text-bright-blue rounded-full text-2xl font-bold">2</div>
+                        <h3 class="text-xl font-semibold mt-6 mb-2">Automate the Task</h3>
+                        <p class="text-gray-600">Let our AI instantly search, analyze, and deliver the targeted information you need in seconds.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center justify-center h-16 w-16 mx-auto bg-blue-100 text-bright-blue rounded-full text-2xl font-bold">3</div>
+                        <h3 class="text-xl font-semibold mt-6 mb-2">Accelerate Your Growth</h3>
+                        <p class="text-gray-600">Use your saved time and powerful new insights to make faster decisions and grow your business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== TOOLS SECTION =========== -->
+        <section id="tools" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                    <!-- Tool Card 1: Leadfinder -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col" data-aos="fade-up">
+                        <div class="flex-grow">
+                            <div class="flex items-center mb-4">
+                                <div class="p-3 bg-blue-100 rounded-full">
+                                    <svg class="w-6 h-6 text-bright-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <h3 class="ml-4 text-xl font-bold text-navy-blue">Montpro Leadfinder</h3>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-off-black mb-3">Build Your Talent Pipeline in Minutes.</h4>
+                            <p class="text-gray-600">
+                                Instantly generate targeted lists of qualified professionals. Just enter your criteria and let our AI find the right people for you to engage.
+                            </p>
+                        </div>
+                        <a href="https://leadfinder.montpro.xyz/" target="_blank" class="mt-8 inline-block bg-bright-blue text-white font-semibold py-3 px-6 rounded-lg text-center hover:bg-opacity-90 transition duration-300">
+                            Launch Leadfinder
+                        </a>
+                    </div>
+
+                    <!-- Tool Card 2: Recruitment -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                         <div class="flex-grow">
+                            <div class="flex items-center mb-4">
+                                 <div class="p-3 bg-green-100 rounded-full">
+                                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <h3 class="ml-4 text-xl font-bold text-navy-blue">Montpro Recruitment</h3>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-off-black mb-3">Screen Candidates in Seconds, Not Hours.</h4>
+                            <p class="text-gray-600">
+                                Get an instant, AI-powered analysis and match score from any CV. Make objective, data-driven decisions and focus on interviewing the best fits.
+                            </p>
+                        </div>
+                        <a href="https://recruitment.montpro.xyz/" target="_blank" class="mt-8 inline-block bg-bright-blue text-white font-semibold py-3 px-6 rounded-lg text-center hover:bg-opacity-90 transition duration-300">
+                            Launch Recruiter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== FINAL CTA SECTION =========== -->
+        <section class="bg-navy-blue">
+            <div class="container mx-auto px-6 py-20 text-center" data-aos="fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to Put Your Growth on Autopilot?</h2>
+                <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+                    A 15-minute demo is all it takes to see how Montpro can permanently streamline your workflow.
+                </p>
+                <a href="https://calendly.com" target="_blank" class="mt-10 inline-block bg-white text-navy-blue font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-200 transform hover:-translate-y-1 transition-all duration-300">
+                    Claim Your Free Demo
+                </a>
+                <p class="mt-6 text-gray-400">
+                    Or, email us directly at <a href="mailto:ardhi@aapgrp.com" class="text-white underline hover:text-gray-200">ardhi@aapgrp.com</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========== FOOTER =========== -->
+    <footer class="bg-light-gray border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="flex items-center justify-center md:justify-start space-x-2">
+                        <svg class="h-6 w-auto text-navy-blue" viewBox="0 0 162 142" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M118.14 0L81 65.4545L43.86 0H0L64.8 110.727V142H97.2V110.727L162 0H118.14Z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-navy-blue">MontPro</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center space-x-6 mb-6 md:mb-0 text-gray-600">
+                    <a href="#how-it-works" class="hover:text-navy-blue transition">How It Works</a>
+                    <a href="#tools" class="hover:text-navy-blue transition">Tools</a>
+                    <a href="mailto:ardhi@aapgrp.com" class="hover:text-navy-blue transition">Contact</a>
+                    <a href="#" class="hover:text-navy-blue transition">Privacy Policy</a>
+                </div>
+                <div class="text-sm text-gray-500">
+                    © 2024 Montpro.xyz. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 750, // Animation duration
+        once: true, // Whether animation should happen only once - while scrolling down
+      });
+    </script>
+
+</body>
+</html>
