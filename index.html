@@ -60,11 +60,13 @@
             text-shadow: 0px 1px 4px rgba(255, 255, 255, 0.6);
         }
 
-        .tool-card {
-            transition: transform 0.2s ease;
+        .tools-section .bg-white {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .tool-card:hover {
+        
+        .tools-section .bg-white:hover {
             transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         .bounce-animation {
@@ -254,7 +256,7 @@
 
                 <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="350">
                     <p class="text-gray-600 text-lg">
-                        <span class="line-through text-red-500">16+ hours of manual work</span> 
+                        <span class="line-through text-red-500">16 hours of manual work</span> 
                         → <span class="text-green-600 font-semibold">60 seconds with AI</span>
                     </p>
                 </div>
