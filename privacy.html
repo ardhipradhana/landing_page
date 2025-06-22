@@ -27,31 +27,6 @@
         .text-bright-blue { color: #4A90E2; }
         .bg-light-gray { background-color: #F8F9FA; }
         .text-off-black { color: #212529; }
-
-        /* Enhanced styles for policy content for better readability and hierarchy */
-        .policy-content h2 {
-            /* Larger top margin for section separation, and a subtle bottom border */
-            @apply text-2xl font-bold text-off-black mt-10 mb-5 border-b border-gray-200 pb-3;
-        }
-        .policy-content h3 {
-            /* More breathing room and brand color for emphasis */
-            @apply text-xl font-semibold text-navy-blue mt-8 mb-4;
-        }
-        .policy-content p, .policy-content ul {
-            /* Slightly more generous line height for long text blocks */
-            @apply text-gray-700 leading-loose mb-5;
-        }
-        .policy-content ul {
-            /* Standard list styling */
-            @apply list-disc list-inside pl-4;
-        }
-        .policy-content ul li {
-            /* Adds space between individual list items */
-            @apply mb-2;
-        }
-        .policy-content a {
-            @apply text-blue-600 hover:underline;
-        }
     </style>
 </head>
 <body class="text-off-black bg-gray-50">
@@ -88,19 +63,21 @@
                 <p class="text-gray-500 mb-10">Last Updated: June 22, 2025</p>
 
                 <!-- Policy Content -->
-                <div class="policy-content">
-                    <p>Welcome to MontPro. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, montpro.xyz, and use our services (collectively, the "Service").</p>
+                <div class="policy-content space-y-5">
+                    <p class="text-gray-700 leading-loose">Welcome to MontPro. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, montpro.xyz, and use our services (collectively, the "Service").</p>
 
-                    <h2>1. Information We Collect</h2>
-                    <p>We may collect information about you in a variety of ways. The information we may collect on the Service includes:</p>
-                    <h3>Personally Identifiable Information</h3>
-                    <p>We may collect personally identifiable information, such as your name, email address, and telephone number, that you voluntarily give to us when you fill out a contact form, book a demo, or subscribe to a waitlist. You are under no obligation to provide us with personal information of any kind; however, your refusal to do so may prevent you from using certain features of the Service.</p>
-                    <h3>Derivative Data</h3>
-                    <p>Information our servers automatically collect when you access the Service, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the Site. This information is used for system administration and to improve the Service.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">1. Information We Collect</h2>
+                    <p class="text-gray-700 leading-loose">We may collect information about you in a variety of ways. The information we may collect on the Service includes:</p>
+                    
+                    <h3 class="text-xl font-semibold text-navy-blue pt-4">Personally Identifiable Information</h3>
+                    <p class="text-gray-700 leading-loose">We may collect personally identifiable information, such as your name, email address, and telephone number, that you voluntarily give to us when you fill out a contact form, book a demo, or subscribe to a waitlist. You are under no obligation to provide us with personal information of any kind; however, your refusal to do so may prevent you from using certain features of the Service.</p>
+                    
+                    <h3 class="text-xl font-semibold text-navy-blue pt-4">Derivative Data</h3>
+                    <p class="text-gray-700 leading-loose">Information our servers automatically collect when you access the Service, such as your IP address, browser type, operating system, access times, and the pages you have viewed directly before and after accessing the Site. This information is used for system administration and to improve the Service.</p>
 
-                    <h2>2. Use of Your Information</h2>
-                    <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Service to:</p>
-                    <ul>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">2. Use of Your Information</h2>
+                    <p class="text-gray-700 leading-loose">Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Service to:</p>
+                    <ul class="list-disc list-inside text-gray-700 leading-loose pl-4 space-y-2">
                         <li>Respond to your inquiries and demo requests.</li>
                         <li>Send you notifications about our products, services, and updates.</li>
                         <li>Monitor and analyze usage and trends to improve your experience with the Service.</li>
@@ -108,25 +85,25 @@
                         <li>Fulfill and manage other business purposes.</li>
                     </ul>
 
-                    <h2>3. Disclosure of Your Information</h2>
-                    <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website or servicing you (such as our hosting provider or Calendly for scheduling), so long as those parties agree to keep this information confidential.</p>
-                    <p>We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">3. Disclosure of Your Information</h2>
+                    <p class="text-gray-700 leading-loose">We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website or servicing you (such as our hosting provider or Calendly for scheduling), so long as those parties agree to keep this information confidential.</p>
+                    <p class="text-gray-700 leading-loose">We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.</p>
                     
-                    <h2>4. Security of Your Information</h2>
-                    <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">4. Security of Your Information</h2>
+                    <p class="text-gray-700 leading-loose">We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
 
-                    <h2>5. Policy for Children</h2>
-                    <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">5. Policy for Children</h2>
+                    <p class="text-gray-700 leading-loose">We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.</p>
 
-                    <h2>6. Links to Third-Party Websites</h2>
-                    <p>The Service may contain links to third-party websites and applications of interest, including advertisements and external services, that are not affiliated with us. Once you have used these links to leave the Service, any information you provide to these third parties is not covered by this Privacy Policy, and we cannot guarantee the safety and privacy of your information.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">6. Links to Third-Party Websites</h2>
+                    <p class="text-gray-700 leading-loose">The Service may contain links to third-party websites and applications of interest, including advertisements and external services, that are not affiliated with us. Once you have used these links to leave the Service, any information you provide to these third parties is not covered by this Privacy Policy, and we cannot guarantee the safety and privacy of your information.</p>
                     
-                    <h2>7. Changes to This Privacy Policy</h2>
-                    <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">7. Changes to This Privacy Policy</h2>
+                    <p class="text-gray-700 leading-loose">We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
 
-                    <h2>8. Contact Us</h2>
-                    <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
-                    <a href="mailto:support@aapgrp.com" class="font-semibold">support@aapgrp.com</a>
+                    <h2 class="text-2xl font-bold text-off-black pt-5 border-b border-gray-200 pb-3">8. Contact Us</h2>
+                    <p class="text-gray-700 leading-loose">If you have questions or comments about this Privacy Policy, please contact us at:</p>
+                    <a href="mailto:support@aapgrp.com" class="font-semibold text-blue-600 hover:underline">support@aapgrp.com</a>
                 </div>
 
             </div>
@@ -160,7 +137,6 @@
                     <nav class="space-y-3">
                         <a href="https://leadfinder.montpro.xyz/" target="_blank" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Leadfinder</a>
                         <a href="https://recruitment.montpro.xyz/" target="_blank" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Recruiter</a>
-                        <a href="https://tally.so/r/wdgB8q" target="_blank" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Financier Waitlist</a>
                     </nav>
                 </div>
                 <!-- Legal Links -->
