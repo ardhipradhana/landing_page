@@ -675,16 +675,20 @@ VANTA.NET({
   mouseControls: true,
   touchControls: true,
   gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
+  // Dense network for data flow feel
+  points: 12.00,
+  maxDistance: 28.00,
+  spacing: 16.00,
+  // Multi-color cycling (this will be the base, but Vanta will animate)
+  color: 0x4A90E2,      // Primary blue
+  color2: 0x10B981,     // Green for "active" connections  
+  backgroundColor: 0xf8fafc,
+  // More dynamic movement
+  scale: 1.20,
   scaleMobile: 1.00,
-  // --- The Perfect Subtle & High-Contrast Settings ---
-  color: 0x4A90E2,      // A very light, low-contrast gray for the lines
-  backgroundColor: 0xf8fafc, // Match the CSS background color
-  points: 15.00,         // VERY FEW points to eliminate the "busy" look
-  maxDistance: 25.00,   // Keeps connections localized
-  spacing: 18.00        // Creates a lot of clean, open space
+  // These make it feel more "flowing"
+  minHeight: 200.00,
+  minWidth: 200.00
 })
 </script>
 
