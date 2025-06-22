@@ -9,7 +9,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -551,20 +551,20 @@
     </script>
 
 <script>
-VANTA.FOG({
-  el: "#hero-vanta",
+VANTA.WAVES({
+  el: "#hero-vanta", // Make sure your hero section has this ID
   mouseControls: true,
   touchControls: true,
   gyroControls: false,
   minHeight: 200.00,
   minWidth: 200.00,
-  highlightColor: 0xadd8e6, // A very light, almost white-blue
-  midtoneColor: 0x4a90e2,   // A mid-range blue
-  lowlightColor: 0x193a6d,  // Your dark navy-blue
-  baseColor: 0xffffff,     // Your white background
-  blurFactor: 0.50,
-  speed: 1.20,
-  zoom: 0.80
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x193a6d,    // Your navy-blue color
+  shininess: 30.00,   // How much the waves reflect light
+  waveHeight: 15.00,  // Lower for calmer waves
+  waveSpeed: 0.80,    // Speed of the wave motion
+  zoom: 0.90          // Zoom out slightly for a wider view
 })
 </script>
 
