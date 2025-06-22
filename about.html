@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MontPro</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Define custom colors for easy use with Tailwind */
+        .bg-navy-blue { background-color: #193A6D; }
+        .text-navy-blue { color: #193A6D; }
+        .border-navy-blue { border-color: #193A6D; }
+        .bg-bright-blue { background-color: #4A90E2; }
+        .text-bright-blue { color: #4A90E2; }
+        .bg-light-gray { background-color: #F8F9FA; }
+        .text-off-black { color: #212529; }
+    </style>
+</head>
+<body class="text-off-black bg-white">
+
+    <!-- =========== HEADER / NAVIGATION (With "About Us" link) =========== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo - Links to homepage -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-8 w-auto">
+                <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+            </a>
+            
+            <!-- Desktop Navigation Links - NEW ORDER -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html#how-it-works" class="text-gray-600 hover:text-navy-blue transition duration-300">How It Works</a>
+                <a href="index.html#tools" class="text-gray-600 hover:text-navy-blue transition duration-300">Tools</a>
+                <a href="about.html" class="text-navy-blue font-semibold">About Us</a>
+                <a href="mailto:support@aapgrp.com" class="text-gray-600 hover:text-navy-blue transition duration-300">Contact</a>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="https://calendly.com/ardhipradhana/montpro_discovery" target="_blank" class="hidden md:inline-block bg-navy-blue text-white font-semibold py-2 px-5 rounded-lg shadow-md hover:bg-opacity-90 transition duration-300">
+                Book a Demo
+            </a>
+        </nav>
+    </header>
+
+    <!-- =========== MAIN CONTENT (About Us) =========== -->
+    <main>
+        <!-- Section 1: The Mission -->
+        <section class="py-20 md:py-28 bg-gray-50">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-navy-blue leading-tight">
+                    We Believe Your Time Is Too Valuable for Busywork.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600 leading-relaxed">
+                    MontPro was founded on a simple premise: human potential is the most powerful force in business. Our mission is to unleash that potential by eliminating the manual, repetitive tasks that drain energy and stifle growth.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: The Founder's Story -->
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+                <!-- Founder Photo Placeholder -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gray-200 rounded-lg aspect-square w-full max-w-sm mx-auto overflow-hidden">
+                        <img src="https://placehold.co/500x500/e2e8f0/4a5568?text=Ardhi+A.+Pradhana" alt="Ardhi A. Pradhana, Founder of MontPro" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Story Content -->
+                <div class="lg:col-span-3">
+                    <h2 class="text-3xl md:text-4xl font-bold text-off-black mb-6">A Perspective from the CFO's Desk</h2>
+                    <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+                        <p>
+                            After 15 years in finance, including five years as a Chief Financial Officer, I've seen firsthand how businesses really operate. I've witnessed immense talent and brilliant strategies get bogged down by inefficiency, human bias, and tasks that should have been automated years ago.
+                        </p>
+                        <p>
+                            The biggest bottleneck to growth wasn't a lack of ambition; it was the sheer amount of time wasted on repetitive work. I realized that for businesses to truly thrive, especially in a competitive landscape, they couldn't afford to pay people for tasks that AI could perform better, faster, and at a fraction of the cost.
+                        </p>
+                        <p class="font-semibold text-navy-blue">
+                            So, I decided to build the solution myself. As a finance professional, not a programmer, I used the power of AI to create the very tools I wished my teams had. MontPro is the result of that vision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Our Philosophy -->
+        <section class="py-20 md:py-24 bg-navy-blue text-white">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">The New Standard for Performance</h2>
+                <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                    We are unapologetic in our belief that AI is raising the bar. The future of work isn't about doing mundane tasks faster; it's about not doing them at all. Our tools create a clear choice: either elevate your skills to focus on the strategic, creative work that drives value, or get left behind by the new standard of efficiency.
+                </p>
+                <p class="mt-6 text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                    We build tools that push businesses and people to be better. We hope this inspires a new wave of human ingenuity—we're just here to handle the rest.
+                </p>
+                <a href="index.html#tools" class="mt-10 inline-block bg-white text-navy-blue font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-200 transition-all duration-300">
+                    Explore Our Tools
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========== FOOTER (Same as other pages) =========== -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-12">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
+                <!-- Brand Section -->
+                <div class="md:col-span-2 space-y-4">
+                    <a href="index.html" class="flex items-center space-x-3 group">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-8 w-auto">
+                        <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+                    </a>
+                    <p class="text-gray-600 max-w-md leading-relaxed">AI tools that eliminate your busywork so you can focus on growing your business. Get hours back every week with intelligent automation.</p>
+                </div>
+                <!-- Navigation Links -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Navigation</h3>
+                    <nav class="space-y-3">
+                        <a href="index.html#how-it-works" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">How It Works</a>
+                        <a href="index.html#tools" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Our Tools</a>
+                    </nav>
+                </div>
+                <!-- Company Links -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
+                    <nav class="space-y-3">
+                        <a href="about.html" class="block text-navy-blue font-bold hover:text-navy-blue transition-colors duration-300 text-sm">About Us</a>
+                        <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Contact</a>
+                    </nav>
+                </div>
+                <!-- Legal Links -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Legal</h3>
+                    <nav class="space-y-3">
+                        <a href="privacy.html" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Privacy Policy</a>
+                        <a href="terms.html" class="block text-gray-600 hover:text-navy-blue transition-colors duration-300 text-sm font-medium">Terms of Service</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-300 pt-8 text-center">
+                <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
