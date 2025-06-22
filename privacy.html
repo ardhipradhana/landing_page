@@ -28,18 +28,26 @@
         .bg-light-gray { background-color: #F8F9FA; }
         .text-off-black { color: #212529; }
 
-        /* Styles for the policy content for better readability */
+        /* Enhanced styles for policy content for better readability and hierarchy */
         .policy-content h2 {
-            @apply text-2xl font-bold text-off-black mt-8 mb-4;
+            /* Larger top margin for section separation, and a subtle bottom border */
+            @apply text-2xl font-bold text-off-black mt-10 mb-5 border-b border-gray-200 pb-3;
         }
         .policy-content h3 {
-            @apply text-xl font-semibold text-off-black mt-6 mb-3;
+            /* More breathing room and brand color for emphasis */
+            @apply text-xl font-semibold text-navy-blue mt-8 mb-4;
         }
-        .policy-content p {
-            @apply text-gray-700 leading-relaxed mb-4;
+        .policy-content p, .policy-content ul {
+            /* Slightly more generous line height for long text blocks */
+            @apply text-gray-700 leading-loose mb-5;
         }
         .policy-content ul {
-            @apply list-disc list-inside text-gray-700 leading-relaxed pl-4 mb-4;
+            /* Standard list styling */
+            @apply list-disc list-inside pl-4;
+        }
+        .policy-content ul li {
+            /* Adds space between individual list items */
+            @apply mb-2;
         }
         .policy-content a {
             @apply text-blue-600 hover:underline;
@@ -136,7 +144,7 @@
                         <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-8 w-auto">
                         <span class="text-2xl font-bold text-navy-blue">MontPro</span>
                     </a>
-                    <p class="text-gray-600 max-w-md leading-relaxed">AI tools that eliminate your busywork so you can focus on growing your business.</p>
+                    <p class="text-gray-600 max-w-md leading-relaxed">AI tools that eliminate your busywork so you can focus on growing your business. Get hours back every week with intelligent automation.</p>
                 </div>
                 <!-- Navigation Links -->
                 <div class="space-y-4">
