@@ -329,6 +329,121 @@
                 display: none !important;
             }
         }
+
+        @keyframes sophisticatedPulse {
+            0%, 100% {
+                box-shadow: 0 10px 25px rgba(14, 41, 84, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 15px 35px rgba(14, 41, 84, 0.4), 0 0 0 8px rgba(14, 41, 84, 0.1);
+                transform: scale(1.02);
+            }
+        }
+        
+        /* Apply pulse animation on first load */
+        #chat-bubble.pulse-active {
+            animation: sophisticatedPulse 2.5s ease-in-out 3;
+        }
+        
+        /* Fade-in animation for messages */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        /* Typing indicator animation */
+        @keyframes typingDot {
+            0%, 60%, 100% { opacity: 0.3; }
+            30% { opacity: 1; }
+        }
+        
+        .typing-indicator span {
+            animation: typingDot 1.4s infinite;
+        }
+        
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        /* Follow-up button styles */
+        .follow-up-button {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px 4px 4px 0;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #0e2954;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .follow-up-button:hover {
+            background-color: #0e2954;
+            color: white;
+            border-color: #0e2954;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(14, 41, 84, 0.15);
+        }
+        
+        /* Scrollbar styling for chat messages */
+        #chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        #chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        #chat-messages::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        
+        #chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 640px) {
+            #chat-bubble {
+                bottom: 1rem;
+                right: 1rem;
+                width: 56px;
+                height: 56px;
+            }
+            
+            #chat-bubble svg {
+                width: 24px;
+                height: 24px;
+            }
+            
+            #chat-window {
+                bottom: 5rem;
+                right: 1rem;
+                left: 1rem;
+                width: auto;
+                max-width: none;
+                height: 500px;
+                max-height: calc(100vh - 7rem);
+            }
+        }
         
     </style>
 </head>
@@ -744,18 +859,271 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
 });
 </script>
 
-<script>
-function openChatbot() {
-    // This will trigger your chatbot when implemented
-    // For now, it could scroll to chatbot or open chat widget
-    // Example: Open chat widget
-    alert('Chatbot opening functionality - connect to your chat widget here');
-    
-    // Later you'll replace with something like:
-    // document.getElementById('chatbot-widget').classList.remove('hidden');
-    // or trigger your specific chat library
-}
-</script>
+<!-- =========== CHATBOT WIDGET =========== -->
 
+<!-- Chat Bubble Button -->
+<button id="chat-bubble" class="fixed bottom-6 right-6 z-50 bg-navy-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl hover:scale-105 transition-all duration-300 pulse-active" aria-label="Open chat">
+    <!-- Chat Icon -->
+    <svg id="chat-icon" class="w-7 h-7 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+    </svg>
+    <!-- Close Icon (hidden initially) -->
+    <svg id="close-icon" class="w-7 h-7 hidden transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window" class="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 hidden flex-col transition-all duration-300" style="height: 550px; max-height: calc(100vh - 8rem);">
+    
+    <!-- Chat Header -->
+    <div class="bg-navy-blue text-white p-4 flex items-center justify-between rounded-t-2xl">
+        <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro" class="h-7 w-7">
+            </div>
+            <div>
+                <h4 class="font-semibold text-sm">MontPro Assistant</h4>
+                <p class="text-xs text-bright-blue">Online</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Messages Area -->
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+        <!-- Welcome Message -->
+        <div class="flex items-start space-x-2 animate-fadeIn">
+            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            </div>
+            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[80%]">
+                <p class="text-sm text-gray-800 leading-relaxed">Hi! 👋 I can answer questions about MontPro, book you a demo, or email you details. What interests you?</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Input Area -->
+    <div class="border-t border-gray-200 p-4 bg-white rounded-b-2xl">
+        <div class="flex items-end space-x-2">
+            <textarea 
+                id="chat-input" 
+                rows="1" 
+                placeholder="Ask anything about MontPro..." 
+                class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all" 
+                style="max-height: 100px;"
+            ></textarea>
+            <button id="send-button" class="bg-navy-blue text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-opacity-90 transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+            </button>
+        </div>
+        <p class="text-xs text-gray-500 mt-2">Powered by AI</p>
+    </div>
+    
+</div>
+
+<script>
+// =========== CHATBOT FUNCTIONALITY ===========
+
+(function() {
+    const chatBubble = document.getElementById('chat-bubble');
+    const chatWindow = document.getElementById('chat-window');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-button');
+    const chatIcon = document.getElementById('chat-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    let isOpen = false;
+
+    // Stop pulse animation after 7.5 seconds (3 cycles × 2.5s)
+    setTimeout(() => {
+        chatBubble.classList.remove('pulse-active');
+    }, 7500);
+
+    // Toggle chat window
+    function toggleChat() {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+            chatWindow.classList.remove('hidden');
+            chatWindow.classList.add('flex');
+            chatIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            chatInput.focus();
+        } else {
+            chatWindow.classList.add('hidden');
+            chatWindow.classList.remove('flex');
+            chatIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+    }
+
+    // Add user message to chat
+    function addUserMessage(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex items-start space-x-2 justify-end animate-fadeIn';
+        messageDiv.innerHTML = `
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-3 shadow-sm max-w-[80%]">
+                <p class="text-sm leading-relaxed">${escapeHtml(message)}</p>
+            </div>
+        `;
+        chatMessages.appendChild(messageDiv);
+        scrollToBottom();
+    }
+
+    // Add bot message to chat
+    function addBotMessage(message, followUpQuestions = []) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex items-start space-x-2 animate-fadeIn';
+        
+        let followUpHTML = '';
+        if (followUpQuestions && followUpQuestions.length > 0) {
+            followUpHTML = '<div class="mt-3">';
+            followUpQuestions.forEach(question => {
+                followUpHTML += `<button class="follow-up-button" onclick="handleFollowUpClick('${escapeHtml(question)}')">${escapeHtml(question)}</button>`;
+            });
+            followUpHTML += '</div>';
+        }
+        
+        messageDiv.innerHTML = `
+            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            </div>
+            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[80%]">
+                <p class="text-sm text-gray-800 leading-relaxed">${escapeHtml(message)}</p>
+                ${followUpHTML}
+            </div>
+        `;
+        chatMessages.appendChild(messageDiv);
+        scrollToBottom();
+    }
+
+    // Add typing indicator
+    function addTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.id = 'typing-indicator';
+        typingDiv.className = 'flex items-start space-x-2 animate-fadeIn';
+        typingDiv.innerHTML = `
+            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            </div>
+            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm">
+                <div class="flex space-x-1 typing-indicator">
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                </div>
+            </div>
+        `;
+        chatMessages.appendChild(typingDiv);
+        scrollToBottom();
+    }
+
+    // Remove typing indicator
+    function removeTypingIndicator() {
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    // Send message to backend (placeholder - connect to your API)
+    async function sendMessage(message) {
+        addUserMessage(message);
+        addTypingIndicator();
+        
+        // TODO: Replace with actual API call
+        // Example API structure:
+        /*
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        });
+        const data = await response.json();
+        */
+        
+        // Simulated response (remove this when connecting to real backend)
+        setTimeout(() => {
+            removeTypingIndicator();
+            
+            // Example response structure from your backend
+            const mockResponse = {
+                message: "I'd be happy to help! MontPro offers powerful financial features including AI-powered forecasting, real-time dashboards, and seamless integrations. Would you like to know more about any specific feature?",
+                followUpQuestions: [
+                    "📅 Book a Demo",
+                    "📧 Email Me Details",
+                    "💡 Tell me about AI Features"
+                ]
+            };
+            
+            addBotMessage(mockResponse.message, mockResponse.followUpQuestions);
+        }, 1500);
+    }
+
+    // Handle follow-up question click
+    window.handleFollowUpClick = function(question) {
+        // Remove HTML entities if any
+        const cleanQuestion = question.replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+        sendMessage(cleanQuestion);
+    };
+
+    // Handle send button click
+    function handleSend() {
+        const message = chatInput.value.trim();
+        if (message) {
+            sendMessage(message);
+            chatInput.value = '';
+            autoResizeTextarea();
+        }
+    }
+
+    // Auto-resize textarea
+    function autoResizeTextarea() {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
+    }
+
+    // Scroll to bottom of messages
+    function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    // Event listeners
+    chatBubble.addEventListener('click', toggleChat);
+    sendButton.addEventListener('click', handleSend);
+    
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleSend();
+        }
+    });
+    
+    chatInput.addEventListener('input', autoResizeTextarea);
+
+})();
+</script>
+    
 </body>
 </html>
