@@ -407,6 +407,7 @@
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: transparent transparent;
+            overflow-x: hidden;
         }
         
         #chat-messages:hover {
@@ -888,7 +889,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
 </button>
 
 <!-- Chat Window -->
-<div id="chat-window" class="fixed bottom-6 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border-0 hidden flex-col transition-all duration-300" style="font-family: 'Inter', sans-serif; height: calc(100vh - 8rem); max-height: calc(100vh - 8rem);">
+<div id="chat-window" class="fixed bottom-4 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl overflow-hidden shadow-2xl border-0 hidden flex-col transition-all duration-300" style="font-family: 'Inter', sans-serif; height: calc(100vh - 6rem); max-height: calc(100vh - 6rem);">
     
     <!-- Chat Header -->
     <div class="bg-navy-blue text-white p-4 flex items-center justify-between rounded-t-2xl">
@@ -919,28 +920,33 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     </div>
     
     <!-- Chat Input Area -->
-    <div class="border-t border-gray-200 p-4 bg-white rounded-b-2xl">
-        <div class="flex items-end space-x-2">
-            <button id="attach-button" class="text-gray-500 hover:text-navy-blue rounded-xl w-10 h-10 flex items-center justify-center transition-all flex-shrink-0" title="Attach file">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
-                </svg>
-            </button>
-            <textarea 
-                id="chat-input" 
-                rows="1" 
-                placeholder="Ask anything about MontPro..." 
-                class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all" 
-                style="max-height: 100px;"
-            ></textarea>
-            <button id="send-button" class="bg-navy-blue text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-opacity-90 transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                </svg>
-            </button>
+    <div class="border-t border-gray-200 bg-white rounded-b-2xl">
+        <!-- Input Row -->
+        <div class="px-4 pt-4 pb-3">
+            <div class="flex items-end space-x-2">
+                <button id="attach-button" class="text-gray-500 hover:text-navy-blue border border-gray-300 hover:border-navy-blue rounded-full w-10 h-10 flex items-center justify-center transition-all flex-shrink-0" title="Attach file">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                    </svg>
+                </button>
+                <textarea 
+                    id="chat-input" 
+                    rows="1" 
+                    placeholder="Ask anything about MontPro..." 
+                    class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all" 
+                    style="max-height: 100px;"
+                ></textarea>
+                <button id="send-button" class="bg-navy-blue text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-opacity-90 transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div class="mt-2 text-center">
-            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background: linear-gradient(135deg, #193A6D 0%, #4A90E2 100%); color: white;">
+        
+        <!-- Branding Badge Row -->
+        <div class="px-4 pb-3 flex justify-center">
+            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style="background: linear-gradient(135deg, #4A90E2 0%, #193A6D 100%); color: white;">
                 <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
                 </svg>
