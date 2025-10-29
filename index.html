@@ -383,12 +383,12 @@
         /* Follow-up button styles */
         .follow-up-button {
             display: inline-block;
-            padding: 8px 16px;
-            margin: 4px 4px 4px 0;
+            padding: 6px 12px;
+            margin: 3px 3px 3px 0;
             background-color: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 13px;
+            border-radius: 10px;
+            font-size: 12px;
             color: #0e2954;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -402,7 +402,17 @@
             box-shadow: 0 4px 8px rgba(14, 41, 84, 0.15);
         }
         
-        /* Scrollbar styling for chat messages */
+        /* Hide scrollbar by default, show only on hover or when scrolling */
+        #chat-messages {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: transparent transparent;
+        }
+        
+        #chat-messages:hover {
+            scrollbar-color: #cbd5e1 transparent;
+        }
+        
         #chat-messages::-webkit-scrollbar {
             width: 6px;
         }
@@ -412,8 +422,12 @@
         }
         
         #chat-messages::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: transparent;
             border-radius: 3px;
+        }
+        
+        #chat-messages:hover::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
         }
         
         #chat-messages::-webkit-scrollbar-thumb:hover {
@@ -883,8 +897,8 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                 <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro" class="h-7 w-7">
             </div>
             <div>
-                <h4 class="font-semibold text-sm">MontPro Assistant</h4>
-                <p class="text-xs text-bright-blue">Online</p>
+                <h4 class="font-semibold text-sm">Monty</h4>
+                <p class="text-xs opacity-90">Your MontPro AI Assistant</p>
             </div>
         </div>
         <button id="close-chat" class="text-white hover:bg-white hover:bg-opacity-20 rounded-lg p-2 transition-all">
@@ -897,14 +911,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     <!-- Chat Messages Area -->
     <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
         <!-- Welcome Message -->
-        <div class="flex items-start space-x-2 animate-fadeIn">
-            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-            </div>
-            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[80%]">
-                <p class="text-sm text-gray-800 leading-relaxed">Hi! 👋 I can answer questions about MontPro, book you a demo, or email you details. What interests you?</p>
+        <div class="flex items-start animate-fadeIn">
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%]" style="background-color: #E8F4FF;">
+                <p class="text-[13px] text-gray-800 leading-relaxed">Hi! 👋 I can answer questions about MontPro, book you a demo, or email you details. What interests you?</p>
             </div>
         </div>
     </div>
@@ -912,11 +921,16 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     <!-- Chat Input Area -->
     <div class="border-t border-gray-200 p-4 bg-white rounded-b-2xl">
         <div class="flex items-end space-x-2">
+            <button id="attach-button" class="text-gray-500 hover:text-navy-blue rounded-xl w-10 h-10 flex items-center justify-center transition-all flex-shrink-0" title="Attach file">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                </svg>
+            </button>
             <textarea 
                 id="chat-input" 
                 rows="1" 
                 placeholder="Ask anything about MontPro..." 
-                class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all" 
+                class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all" 
                 style="max-height: 100px;"
             ></textarea>
             <button id="send-button" class="bg-navy-blue text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-opacity-90 transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
@@ -925,7 +939,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                 </svg>
             </button>
         </div>
-        <p class="text-xs text-gray-500 mt-2">Powered by AI</p>
+        <p class="text-xs text-gray-500 mt-2">Powered by MontPro AI</p>
     </div>
     
 </div>
@@ -968,10 +982,10 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     // Add user message to chat
     function addUserMessage(message) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'flex items-start space-x-2 justify-end animate-fadeIn';
+        messageDiv.className = 'flex items-start justify-end animate-fadeIn';
         messageDiv.innerHTML = `
-            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-3 shadow-sm max-w-[80%]">
-                <p class="text-sm leading-relaxed">${escapeHtml(message)}</p>
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%]">
+                <p class="text-[13px] leading-relaxed">${escapeHtml(message)}</p>
             </div>
         `;
         chatMessages.appendChild(messageDiv);
@@ -981,11 +995,11 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     // Add bot message to chat
     function addBotMessage(message, followUpQuestions = []) {
         const messageDiv = document.createElement('div');
-        messageDiv.className = 'flex items-start space-x-2 animate-fadeIn';
+        messageDiv.className = 'flex items-start animate-fadeIn';
         
         let followUpHTML = '';
         if (followUpQuestions && followUpQuestions.length > 0) {
-            followUpHTML = '<div class="mt-3">';
+            followUpHTML = '<div class="mt-2.5">';
             followUpQuestions.forEach(question => {
                 followUpHTML += `<button class="follow-up-button" onclick="handleFollowUpClick('${escapeHtml(question)}')">${escapeHtml(question)}</button>`;
             });
@@ -993,13 +1007,8 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         }
         
         messageDiv.innerHTML = `
-            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-            </div>
-            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm max-w-[80%]">
-                <p class="text-sm text-gray-800 leading-relaxed">${escapeHtml(message)}</p>
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%]" style="background-color: #E8F4FF;">
+                <p class="text-[13px] text-gray-800 leading-relaxed">${escapeHtml(message)}</p>
                 ${followUpHTML}
             </div>
         `;
@@ -1011,14 +1020,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     function addTypingIndicator() {
         const typingDiv = document.createElement('div');
         typingDiv.id = 'typing-indicator';
-        typingDiv.className = 'flex items-start space-x-2 animate-fadeIn';
+        typingDiv.className = 'flex items-start animate-fadeIn';
         typingDiv.innerHTML = `
-            <div class="w-8 h-8 rounded-full bg-navy-blue flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-            </div>
-            <div class="bg-white rounded-2xl rounded-tl-none p-3 shadow-sm">
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm" style="background-color: #E8F4FF;">
                 <div class="flex space-x-1 typing-indicator">
                     <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
                     <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
@@ -1125,6 +1129,95 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     });
     
     chatInput.addEventListener('input', autoResizeTextarea);
+
+    // File attachment functionality
+    document.getElementById('attach-button').addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*,.pdf';
+        input.multiple = false; // Set to true if you want multiple files
+        
+        input.onchange = async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // Validate file size (max 10MB)
+            const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+            if (file.size > maxSize) {
+                addBotMessage('Sorry, file size must be under 10MB. Please try a smaller file.');
+                return;
+            }
+            
+            // Show file being uploaded
+            addFilePreview(file);
+            addTypingIndicator();
+            
+            // Send to backend
+            await sendFileToBackend(file);
+        };
+        
+        input.click();
+    });
+    
+    // Add file preview message
+    function addFilePreview(file) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'flex items-start justify-end animate-fadeIn';
+        
+        const fileIcon = file.type.includes('image') ? '🖼️' : '📄';
+        const fileSize = (file.size / 1024).toFixed(1) + ' KB';
+        
+        messageDiv.innerHTML = `
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%]">
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg">${fileIcon}</span>
+                    <div>
+                        <p class="text-[13px] font-medium">${escapeHtml(file.name)}</p>
+                        <p class="text-[11px] opacity-75">${fileSize}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        chatMessages.appendChild(messageDiv);
+        scrollToBottom();
+    }
+    
+    // Send file to backend
+    async function sendFileToBackend(file) {
+        try {
+            // Create FormData
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('filename', file.name);
+            formData.append('fileType', file.type);
+            
+            // TODO: Replace with your actual API endpoint
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+                // Add headers if needed (auth token, etc.)
+                // headers: { 'Authorization': 'Bearer YOUR_TOKEN' }
+            });
+            
+            if (!response.ok) {
+                throw new Error('Upload failed');
+            }
+            
+            const data = await response.json();
+            
+            removeTypingIndicator();
+            
+            // Handle response from backend
+            // Expected response format: { message: "...", followUpQuestions: [...] }
+            addBotMessage(
+                data.message || "I've received your file. How can I help you with it?",
+                data.followUpQuestions || []
+            );
+            
+        } catch (error) {
+            removeTypingIndicator();
+            console.error('File upload error:', error);
+            addBotMessage('Sorry, there was an error uploading your file. Please try again or contact support at support@aapgrp.com'
 
 })();
 </script>
