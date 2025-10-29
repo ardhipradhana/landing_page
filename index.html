@@ -435,13 +435,13 @@
             }
             
             #chat-window {
-                bottom: 5rem;
+                bottom: 1rem;
                 right: 1rem;
                 left: 1rem;
                 width: auto;
                 max-width: none;
-                height: 500px;
-                max-height: calc(100vh - 7rem);
+                height: calc(100vh - 2rem);
+                max-height: calc(100vh - 2rem);
             }
         }
         
@@ -874,7 +874,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
 </button>
 
 <!-- Chat Window -->
-<div id="chat-window" class="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 hidden flex-col transition-all duration-300" style="height: 550px; max-height: calc(100vh - 8rem);">
+<div id="chat-window" class="fixed bottom-6 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 hidden flex-col transition-all duration-300" style="height: calc(100vh - 3rem); max-height: calc(100vh - 3rem);">
     
     <!-- Chat Header -->
     <div class="bg-navy-blue text-white p-4 flex items-center justify-between rounded-t-2xl">
@@ -887,6 +887,11 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                 <p class="text-xs text-bright-blue">Online</p>
             </div>
         </div>
+        <button id="close-chat" class="text-white hover:bg-white hover:bg-opacity-20 rounded-lg p-2 transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
     </div>
     
     <!-- Chat Messages Area -->
@@ -951,14 +956,12 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         if (isOpen) {
             chatWindow.classList.remove('hidden');
             chatWindow.classList.add('flex');
-            chatIcon.classList.add('hidden');
-            closeIcon.classList.remove('hidden');
+            chatBubble.style.display = 'none'; // Hide bubble when chat opens
             chatInput.focus();
         } else {
             chatWindow.classList.add('hidden');
             chatWindow.classList.remove('flex');
-            chatIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
+            chatBubble.style.display = 'flex'; // Show bubble when chat closes
         }
     }
 
@@ -1111,6 +1114,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
 
     // Event listeners
     chatBubble.addEventListener('click', toggleChat);
+    document.getElementById('close-chat').addEventListener('click', toggleChat);
     sendButton.addEventListener('click', handleSend);
     
     chatInput.addEventListener('keydown', (e) => {
