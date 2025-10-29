@@ -270,6 +270,52 @@
         
         .icon-ai { background-color: #FED7AA; }
         .icon-ai svg { color: #EA580C; }
+
+        h1 {
+            font-size: 2.25rem; /* 36px */
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem; /* 48px */
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3.75rem; /* 60px */
+            }
+        }
+        
+        /* Section Headers */
+        h2 {
+            font-size: 1.875rem; /* 30px */
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.25rem; /* 36px */
+            }
+        }
+        
+        /* Card Headers */
+        h3, h4 {
+            line-height: 1.4;
+        }
+        
+        /* Body Text Optimization */
+        p {
+            line-height: 1.7;
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        a, button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
         
         /* Show annotations only on larger screens */
         @media (min-width: 1280px) {
@@ -327,10 +373,10 @@
 
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-6 py-4 space-y-4">
-                <a href="#features" class="block text-gray-600 hover:text-navy-blue transition duration-300">Features</a>
-                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300">Contact</a>
-                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+            <div class="px-6 py-4 space-y-3">
+                <a href="#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendly.com/ardhipradhana/montpro_discovery" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
             </div>
         </div>
         
@@ -366,17 +412,17 @@
                     </h1>
                     
                     <!-- Subheadline -->
-                    <p class="text-xl md:text-2xl mb-3 leading-relaxed" style="color: var(--gray-600);" data-aos="fade-up" data-aos-delay="50">
+                    <p class="text-xl md:text-2xl mb-4 leading-relaxed" style="color: var(--gray-600);" data-aos="fade-up" data-aos-delay="50">
                         Real-time visibility. 13-week forecasts. No 6-month implementation.
                     </p>
                     
                     <!-- Credibility Line -->
-                    <p class="text-base mb-10 leading-relaxed" style="color: var(--gray-600); opacity: 0.8;" data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-base mb-12 leading-relaxed" style="color: var(--gray-600); opacity: 0.8;" data-aos="fade-up" data-aos-delay="100">
                         Built by a CFO with 15 years experience who got tired of fighting legacy systems
                     </p>
         
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-8" data-aos="fade-up" data-aos-delay="150">
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-10" data-aos="fade-up" data-aos-delay="150">
                         <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-lg w-full sm:w-auto">
                             Book a Demo
                         </a>
@@ -555,7 +601,7 @@
                     </a>
                     
                     <!-- Chat Option -->
-                    <div class="mt-6 flex items-center justify-center space-x-2 text-gray-500">
+                    <div class="mt-8 flex items-center justify-center space-x-2" style="color: var(--gray-600);">
                         <span class="text-sm">Quick questions?</span>
                         <button onclick="openChatbot()" class="btn-tertiary text-sm">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-right: 0.25rem;">
