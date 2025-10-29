@@ -1099,14 +1099,21 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         if (message) {
             sendMessage(message);
             chatInput.value = '';
-            autoResizeTextarea();
+            chatInput.style.height = '40px';
         }
     }
 
     // Auto-resize textarea
     function autoResizeTextarea() {
         chatInput.style.height = 'auto';
-        chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
+        const newHeight = chatInput.scrollHeight;
+        
+        // If empty or very small, keep at minimum (single row)
+        if (chatInput.value.trim() === '' || newHeight <= 40) {
+            chatInput.style.height = '40px'; // Reset to single line height
+        } else {
+            chatInput.style.height = Math.min(newHeight, 100) + 'px';
+        }
     }
 
     // Scroll to bottom of messages
