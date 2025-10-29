@@ -8,8 +8,6 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,11 +40,6 @@
         /* Minor tweak for animation delays */
         [data-aos-delay] {
             transition-delay: var(--aos-delay);
-        }
-
-        #hero-net {
-            /* Use a professional, off-white for a softer feel */
-            background-color: #f8fafc; 
         }
         
         /* Make the headline darker and add a shadow for contrast */
@@ -150,48 +143,78 @@
     <!-- =========== MAIN CONTENT =========== -->
     <main>
         <!-- =========== HERO SECTION =========== -->
-        <section id="hero-net" class="py-20 md:py-32 relative"> 
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-navy-blue leading-tight" data-aos="fade-up">
-                    We Automate. You Accelerate.
-                </h1>
+        <section class="relative overflow-hidden bg-gradient-to-br from-gray-50 to-white py-20 md:py-32">
+            
+            <!-- Subtle background decoration -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute top-20 right-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+                <div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+            </div>
+        
+            <div class="container mx-auto px-6 relative z-10">
                 
-                <!-- Domain play - smaller, more subtle -->
-                <p class="mt-6 text-lg md:text-xl text-gray-600 font-semibold" data-aos="fade-up" data-aos-delay="50">
-                    We handle your business XYZ, so you can accelerate EASY.
-                </p>
-                
-                <!-- NEW: Strong value proposition with credible backing -->
-                <div class="mt-10 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Stats in cards with inline sources -->
-                    <div class="space-y-8">
-                        <!-- First stat card -->
-                        <div class="bg-white p-6 rounded-2xl border-l-4 border-red-500 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <p class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight mb-2">
-                                <span class="text-red-600">16+ hours</span> wasted every week on administrative tasks
-                            </p>
-                            <p class="text-base md:text-lg text-gray-600">
-                                —the equivalent of two full days every week. <em class="text-sm text-gray-500">Source: <a href="https://blog.coadvantage.com/how-much-time-do-you-spend-on-administrative-non-core-tasks" target="_blank" class="text-blue-600 hover:text-blue-800 underline">ServiceNow State of Work Report</a></em>
-                            </p>
+                <!-- Beta Badge -->
+                <div class="flex justify-center mb-6" data-aos="fade-down">
+                    <div class="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                        <span class="text-sm font-medium text-blue-700">Currently in Beta • Improving Every Week</span>
+                    </div>
+                </div>
+        
+                <!-- Main Headline -->
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-navy-blue leading-tight mb-6" data-aos="fade-up">
+                        Financial Intelligence That Actually Makes Sense
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-gray-600 mb-4 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                        We're building a financial dashboard that CFOs actually want to use.
+                    </p>
+                    
+                    <p class="text-lg text-gray-500 mb-12" data-aos="fade-up" data-aos-delay="150">
+                        Real-time visibility. 13-week forecasts. No 6-month implementation.
+                    </p>
+        
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://tally.so/r/wdgB8q" target="_blank" class="bg-navy-blue text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto text-center">
+                            Join Beta (Free for 3 Months)
+                        </a>
+                        <a href="https://calendly.com/ardhipradhana/montpro_discovery" target="_blank" class="bg-white border-2 border-navy-blue text-navy-blue font-bold py-4 px-8 rounded-lg hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto text-center">
+                            Talk to Founder
+                        </a>
+                    </div>
+        
+                    <!-- Trust Indicators -->
+                    <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-600" data-aos="fade-up" data-aos-delay="250">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Real companies using it daily</span>
                         </div>
-                        
-                        <!-- Second stat card -->
-                        <div class="bg-white p-6 rounded-2xl border-l-4 border-orange-500 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                            <p class="text-xl md:text-2xl font-bold text-gray-800 leading-tight mb-2">
-                                Average entrepreneur spends <span class="text-orange-600">36% of their work week</span> on admin tasks
-                            </p>
-                            <p class="text-base md:text-lg text-gray-600">
-                                —like invoicing, data entry, and ordering office supplies. <em class="text-sm text-gray-500">Source: <a href="https://www.timeetc.com/resources/how-to-achieve-more/the-big-price-of-small-tasks-how-entrepreneurs-may-be-unwittingly-keeping-their-businesses-small" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Time etc Survey</a></em>
-                            </p>
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Setup in hours, not months</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                            </svg>
+                            <span>Direct founder access</span>
                         </div>
                     </div>
                 </div>
-                
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <a href="#tools" class="mt-10 inline-block bg-navy-blue text-white font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-opacity-90 transform hover:-translate-y-1 transition-all duration-300">
-                        Explore Our Tools
-                    </a>
+        
+                <!-- Credibility Line -->
+                <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-gray-500 text-sm">
+                        Built by a CFO with 15 years experience who got tired of fighting legacy systems
+                    </p>
                 </div>
+        
             </div>
         </section>
 
@@ -688,27 +711,6 @@
         once: false, // Whether animation should happen only once - while scrolling down
       });
     </script>
-
-<script>
-VANTA.NET({
-  el: "#hero-net",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  // Fewer points, more thoughtful
-  points: 6.00,         // Very minimal
-  maxDistance: 35.00,   // Longer connections
-  spacing: 25.00,       // More space between
-  // Subtle, contemplative colors
-  color: 0x6366F1,      // Indigo for "thinking"
-  backgroundColor: 0xf8fafc,
-  // Slower, more deliberate movement
-  scale: 0.80,
-  scaleMobile: 1.00,
-  minHeight: 200.00,
-  minWidth: 200.00
-})
-</script>
 
 <script>
 document.getElementById('mobile-menu-button').addEventListener('click', function() {
