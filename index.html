@@ -9,6 +9,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -495,6 +496,29 @@
                 max-height: calc(100vh - 6rem);
             }
         }
+
+        /* Button styling - add if needed */
+        #save-chat-btn {
+            position: fixed;
+            bottom: 7rem; /* Adjust based on your input height */
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            #save-chat-btn {
+                bottom: 6.5rem;
+                right: 1.5rem;
+                padding: 0.625rem; /* Slightly smaller on mobile */
+            }
+            
+            #save-chat-btn svg {
+                width: 1.125rem;
+                height: 1.125rem;
+            }
+        }
         
     </style>
 </head>
@@ -969,6 +993,18 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     
     <!-- Chat Messages Area -->
     <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+
+        <!-- NEW: Floating Save Button -->
+        <button id="save-chat-btn" class="fixed bottom-28 right-8 bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-110 rounded-full p-3 shadow-lg transition-all duration-300 z-20 group" title="Save Chat" aria-label="Save chat as PDF">
+            <svg class="w-5 h-5 text-navy-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>
+            </svg>
+            <!-- Tooltip -->
+            <span class="absolute right-full mr-2 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                Save Chat
+            </span>
+        </button>
+        
         <!-- Welcome Message -->
         <div class="flex items-start animate-fadeIn">
             <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%]" style="background-color: #E8F4FF;">
@@ -1261,6 +1297,82 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         
         input.click();
     });
+
+    // Add this to your existing chatbot script
+    document.getElementById('save-chat-btn').addEventListener('click', async function() {
+        // Get all messages
+        const messages = [];
+        const messageElements = document.querySelectorAll('#chat-messages > div:not(#typing-indicator)');
+        
+        messageElements.forEach(el => {
+            const isUser = el.querySelector('.bg-navy-blue');
+            const text = el.querySelector('p').textContent;
+            const time = el.querySelector('.message-time')?.textContent || '';
+            
+            messages.push({
+                sender: isUser ? 'You' : 'Monty',
+                text: text,
+                time: time
+            });
+        });
+        
+        // Generate PDF
+        await generateChatPDF(messages);
+    });
+    
+    async function generateChatPDF(messages) {
+        // Using jsPDF library (add to your page)
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Header
+        doc.setFontSize(20);
+        doc.setTextColor(25, 58, 109); // Navy blue
+        doc.text('MontPro Chat Transcript', 20, 20);
+        
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text(`Exported: ${new Date().toLocaleString()}`, 20, 28);
+        
+        // Messages
+        let y = 40;
+        doc.setFontSize(11);
+        
+        messages.forEach(msg => {
+            // Check if need new page
+            if (y > 270) {
+                doc.addPage();
+                y = 20;
+            }
+            
+            // Sender name (bold)
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor(25, 58, 109);
+            doc.text(`${msg.sender}:`, 20, y);
+            
+            // Message text
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(0);
+            const lines = doc.splitTextToSize(msg.text, 170);
+            doc.text(lines, 20, y + 5);
+            
+            // Time
+            doc.setFontSize(8);
+            doc.setTextColor(150);
+            doc.text(msg.time, 20, y + 5 + (lines.length * 5) + 2);
+            
+            doc.setFontSize(11);
+            y += 5 + (lines.length * 5) + 8;
+        });
+        
+        // Footer
+        doc.setFontSize(8);
+        doc.setTextColor(150);
+        doc.text('Powered by MontPro AI', 105, 290, { align: 'center' });
+        
+        // Download
+        doc.save(`MontPro-Chat-${new Date().toISOString().split('T')[0]}.pdf`);
+    }
     
     // Add file preview message
     function addFilePreview(file) {
