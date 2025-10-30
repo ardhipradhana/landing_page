@@ -1079,10 +1079,10 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
             
             // Handle response from backend - array format with output field
             const responseData = Array.isArray(data) ? data[0] : data;
-            const message = responseData.output || responseData.message || "I received your message. How can I help you?";
+            const botMessage = responseData.output || responseData.message || "I received your message. How can I help you?";
             
             addBotMessage(
-                message,
+                botMessage,  // ← use botMessage instead
                 responseData.followUpQuestions || []
             );
             
