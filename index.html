@@ -1012,10 +1012,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         <div class="flex items-start animate-fadeIn">
             <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative" style="background-color: #E8F4FF;">
                 <p class="text-[12px] text-gray-800 leading-relaxed mb-2">Hello! I'm Monty, your MontPro assistant. I can help you:</p>
-                <p class="text-[10px] text-gray-500 text-right mb-0.5 message-time" id="welcome-timestamp"></p>
                 
                 <!-- Quick Action Buttons -->
-                <div class="flex flex-wrap gap-2 mt-2">
+                <div class="flex flex-wrap gap-2 mt-2 mb-1">
                     <button onclick="handleQuickAction('try')" class="quick-action-btn">
                         Try the Dashboard
                     </button>
@@ -1026,7 +1025,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                         See Pricing
                     </button>
                 </div>
-                <p class="text-[10px] text-gray-500 text-right message-time" id="welcome-timestamp"></p>
+                
+                <!-- Timestamp AFTER buttons -->
+                <p class="text-[10px] text-gray-500 text-right message-time mt-1" id="welcome-timestamp"></p>
             </div>
         </div>
     </div>
@@ -1137,7 +1138,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     function addBotMessage(message, followUpQuestions = []) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'flex items-start animate-fadeIn';
-
+        
         const timestamp = new Date().toLocaleTimeString('en-US', { 
             hour: '2-digit', 
             minute: '2-digit',
@@ -1149,7 +1150,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         
         let followUpHTML = '';
         if (followUpQuestions && followUpQuestions.length > 0) {
-            followUpHTML = '<div class="mt-2.5">';
+            followUpHTML = '<div class="flex flex-col gap-2 mt-2 mb-1">';
             followUpQuestions.forEach(question => {
                 followUpHTML += `<button class="follow-up-button" onclick="handleFollowUpClick('${escapeHtml(question)}')">${escapeHtml(question)}</button>`;
             });
@@ -1159,8 +1160,8 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         messageDiv.innerHTML = `
             <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative" style="background-color: #E8F4FF;">
                 <div class="text-[12px] text-gray-800 leading-relaxed markdown-content mb-1">${formattedMessage}</div>
-                <p class="text-[10px] text-gray-500 text-right message-time">${timestamp}</p>
                 ${followUpHTML}
+                <p class="text-[10px] text-gray-500 text-right message-time mt-1">${timestamp}</p>
             </div>
         `;
         chatMessages.appendChild(messageDiv);
