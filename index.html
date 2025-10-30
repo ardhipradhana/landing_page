@@ -1026,6 +1026,7 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
                         See Pricing
                     </button>
                 </div>
+                <p class="text-[10px] text-gray-500 text-right message-time" id="welcome-timestamp"></p>
             </div>
         </div>
     </div>
@@ -1123,8 +1124,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         });
         
         messageDiv.innerHTML = `
-            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%]">
-                <p class="text-[12px] leading-relaxed">${escapeHtml(message)}</p>
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%] relative">
+                <p class="text-[12px] leading-relaxed mb-1">${escapeHtml(message)}</p>
+                <p class="text-[10px] text-white/60 text-right message-time">${timestamp}</p>
             </div>
         `;
         chatMessages.appendChild(messageDiv);
@@ -1155,8 +1157,9 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         }
         
         messageDiv.innerHTML = `
-            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%]" style="background-color: #E8F4FF;">
-                <div class="text-[12px] text-gray-800 leading-relaxed markdown-content">${formattedMessage}</div>
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative" style="background-color: #E8F4FF;">
+                <div class="text-[12px] text-gray-800 leading-relaxed markdown-content mb-1">${formattedMessage}</div>
+                <p class="text-[10px] text-gray-500 text-right message-time">${timestamp}</p>
                 ${followUpHTML}
             </div>
         `;
