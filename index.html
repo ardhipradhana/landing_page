@@ -1074,14 +1074,16 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
             }
             
             const data = await response.json();
-            
+
             removeTypingIndicator();
             
-            // Handle response from backend
-            // Expected format: { message: "...", followUpQuestions: [...] }
+            // Handle response from backend - array format with output field
+            const responseData = Array.isArray(data) ? data[0] : data;
+            const message = responseData.output || responseData.message || "I received your message. How can I help you?";
+            
             addBotMessage(
-                data.message || "I received your message. How can I help you?",
-                data.followUpQuestions || []
+                message,
+                responseData.followUpQuestions || []
             );
             
         } catch (error) {
