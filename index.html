@@ -510,6 +510,30 @@
                 height: 1.125rem;
             }
         }
+
+        /* Add to your <style> section */
+        .quick-action-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: #193A6D;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .quick-action-btn:hover {
+            background: #193A6D;
+            color: white;
+            border-color: #193A6D;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(25, 58, 109, 0.15);
+        }
         
     </style>
 </head>
@@ -986,8 +1010,22 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
         <!-- Welcome Message -->
         <div class="flex items-start animate-fadeIn">
-            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%]" style="background-color: #E8F4FF;">
-                <p class="text-[12px] text-gray-800 leading-relaxed">Hi! 👋 I can answer questions about MontPro, book you a demo, or email you details. What interests you?</p>
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative" style="background-color: #E8F4FF;">
+                <p class="text-[10px] text-gray-500 text-right mb-0.5 message-time" id="welcome-timestamp"></p>
+                <p class="text-[12px] text-gray-800 leading-relaxed mb-2">Hello! I'm Monty, your MontPro assistant. I can help you:</p>
+                
+                <!-- Quick Action Buttons -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <button onclick="handleQuickAction('try')" class="quick-action-btn">
+                        Try the Dashboard
+                    </button>
+                    <button onclick="handleQuickAction('demo')" class="quick-action-btn">
+                        Book a Demo
+                    </button>
+                    <button onclick="handleQuickAction('pricing')" class="quick-action-btn">
+                        See Pricing
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1077,6 +1115,13 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     function addUserMessage(message) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'flex items-start justify-end animate-fadeIn';
+
+        const timestamp = new Date().toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+        });
+        
         messageDiv.innerHTML = `
             <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%]">
                 <p class="text-[12px] leading-relaxed">${escapeHtml(message)}</p>
@@ -1090,6 +1135,12 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     function addBotMessage(message, followUpQuestions = []) {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'flex items-start animate-fadeIn';
+
+        const timestamp = new Date().toLocaleTimeString('en-US', { 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: false 
+        });
         
         // Convert markdown to HTML
         const formattedMessage = marked.parse(message);
@@ -1309,6 +1360,31 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
         // Generate PDF
         await generateChatPDF(messages);
     });
+
+    // Add this at the end of your chatbot script, inside the IIFE
+    document.getElementById('welcome-timestamp').textContent = new Date().toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit',
+        hour12: false 
+    });
+
+    window.handleQuickAction = function(action) {
+        let message = '';
+        
+        switch(action) {
+            case 'try':
+                message = "I'd like to try the tool";
+                break;
+            case 'demo':
+                message = "I want to book a demo";
+                break;
+            case 'pricing':
+                message = "Show me the pricing";
+                break;
+        }
+        
+        sendMessage(message);
+    };
     
     async function generateChatPDF(messages) {
         // Using jsPDF library (add to your page)
