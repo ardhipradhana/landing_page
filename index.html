@@ -1113,17 +1113,35 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
             }
             
             const data = await response.json();
-
             removeTypingIndicator();
             
             // Handle response from backend - array format with output field
             const responseData = Array.isArray(data) ? data[0] : data;
-            const botMessage = responseData.output || responseData.message || "I received your message. How can I help you?";
+            let outputText = responseData.output || responseData.message || "I received your message. How can I help you?";
             
-            addBotMessage(
-                botMessage,  // ← use botMessage instead
-                responseData.followUpQuestions || []
-            );
+            // Strip markdown code blocks if present
+            outputText = outputText.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+            
+            // Try to parse as JSON if it looks like JSON
+            let botMessage = outputText;
+            let followUps = [];
+            
+            try {
+                if (outputText.startsWith('{')) {
+                    const parsed = JSON.parse(outputText);
+                    botMessage = parsed.output || outputText;
+                    followUps = parsed.followUpQuestions || [];
+                } else {
+                    // Fallback to original structure
+                    followUps = responseData.followUpQuestions || [];
+                }
+            } catch (e) {
+                // If parsing fails, use as-is
+                console.log('Response is not JSON, using as plain text');
+                followUps = responseData.followUpQuestions || [];
+            }
+            
+            addBotMessage(botMessage, followUps);
             
         } catch (error) {
             removeTypingIndicator();
