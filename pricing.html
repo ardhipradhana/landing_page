@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | MontPro</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bg-navy-blue { background-color: #193A6D; }
+        .text-navy-blue { color: #193A6D; }
+        .border-navy-blue { border-color: #193A6D; }
+        .bg-bright-blue { background-color: #4A90E2; }
+        .text-bright-blue { color: #4A90E2; }
+        .bg-light-gray { background-color: #F8F9FA; }
+        .text-off-black { color: #212529; }
+        
+        .btn-primary {
+            background-color: #193A6D;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1F4580;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: #193A6D;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: 2px solid #193A6D;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F8F9FA;
+            transform: translateY(-1px);
+        }
+        
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-off-black bg-gray-50">
+
+    <!-- =========== HEADER / NAVIGATION =========== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html#features" class="text-gray-600 hover:text-navy-blue transition duration-300">Features</a>
+                <a href="pricing.html" class="text-navy-blue font-semibold">Pricing</a>
+                <a href="mailto:support@aapgrp.com" class="text-gray-600 hover:text-navy-blue transition duration-300">Contact</a>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Try It Now
+                </a>
+                
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Book a Demo
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-6 py-4 space-y-3">
+                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html" class="block text-navy-blue font-semibold py-2">Pricing</a>
+                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
+    <main class="py-20 md:py-28">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-navy-blue mb-4">
+                    Simple, Transparent Pricing
+                </h1>
+                <p class="text-xl text-gray-600">
+                    Get started for free. Lock in early adopter pricing before we go live.
+                </p>
+            </div>
+
+            <!-- Pricing Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-2 border-navy-blue">
+                
+                <!-- Badge -->
+                <div class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-4 py-2 rounded-full mb-6">
+                    Early Access - FREE
+                </div>
+                
+                <h2 class="text-3xl font-bold text-off-black mb-4">All Features Included</h2>
+                
+                <div class="mb-8">
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-5xl font-extrabold text-navy-blue">FREE</span>
+                        <span class="text-xl text-gray-600 ml-3">right now</span>
+                    </div>
+                    <p class="text-gray-600">No credit card required • Full access to everything</p>
+                </div>
+
+                <!-- Features List -->
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Real-time cash visibility and forecasting</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">13-week cash flow forecasting</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">AP/AR tracking and automation</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">AI assistant for financial insights</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Unlimited transactions and users</span>
+                    </div>
+                </div>
+
+                <!-- Future Pricing -->
+                <div class="border-t border-gray-200 pt-6 mb-8">
+                    <h3 class="text-lg font-semibold text-off-black mb-3">Future Pricing (Date TBA)</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold text-navy-blue">IDR 999K</span>
+                        <span class="text-gray-600 ml-2">/month</span>
+                        <span class="text-sm text-gray-500 line-through ml-4">IDR 5M/month</span>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        Early adopters lock in this rate. We'll notify you well in advance before any charges begin.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="space-y-3">
+                    <a href="https://financier.montpro.xyz/" target="_blank" class="btn-primary w-full justify-center text-lg py-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        Start Free Now
+                    </a>
+                    <p class="text-center text-sm text-gray-500">
+                        No credit card • No commitment • Cancel anytime
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center text-off-black mb-8">Frequently Asked Questions</h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h4 class="font-semibold text-off-black mb-2">When does billing start?</h4>
+                        <p class="text-gray-600">We'll notify all users at least 30 days before we begin charging. You'll have plenty of time to decide if MontPro is right for your business.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h4 class="font-semibold text-off-black mb-2">Will my price change after launch?</h4>
+                        <p class="text-gray-600">No. Early adopters lock in IDR 999K/month permanently. This rate won't change even when regular pricing goes to IDR 5M/month.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h4 class="font-semibold text-off-black mb-2">What's included in "all features"?</h4>
+                        <p class="text-gray-600">Everything you see on the platform: real-time cash tracking, 13-week forecasts, AP/AR management, AI assistant, unlimited transactions, and all future features we build.</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-6 shadow-sm">
+                        <h4 class="font-semibold text-off-black mb-2">Can I cancel anytime?</h4>
+                        <p class="text-gray-600">Yes. No contracts, no commitments. If MontPro isn't right for you, cancel anytime with one click.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- =========== FOOTER =========== -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+                
+                <!-- Brand Section -->
+                <div class="md:col-span-2 space-y-4">
+                    <a href="index.html" class="flex items-center space-x-3 group">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                        <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+                    </a>
+                    <p class="text-gray-600 max-w-md leading-relaxed">
+                        Financial intelligence without the complexity. Make decisions with confidence, all in one place.
+                    </p>
+                </div>
+                
+                <!-- Contact & Legal -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
+                    <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="text-sm font-medium">support@aapgrp.com</span>
+                    </a>
+                    
+                    <div class="pt-6 space-y-2">
+                        <a href="privacy.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-300 pt-8 text-center">
+                <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+    </script>
+
+</body>
+</html>
