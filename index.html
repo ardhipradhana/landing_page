@@ -552,7 +552,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: var(--navy-900);
+            background-color: rgba(25, 58, 109, 0.7); /* 70% transparent */
+            backdrop-filter: blur(8px); /* Glass morphism effect */
+            -webkit-backdrop-filter: blur(8px); /* Safari support */
             color: white;
             width: 48px;
             height: 48px;
@@ -562,15 +564,20 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: var(--shadow-lg);
-            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
             z-index: 10;
         }
         
         .carousel-nav-btn:hover {
-            background-color: var(--navy-800);
+            background-color: rgba(25, 58, 109, 0.95); /* Nearly opaque on hover */
             transform: translateY(-50%) scale(1.1);
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-nav-btn:active {
+            transform: translateY(-50%) scale(1.05);
         }
         
         .carousel-nav-left {
@@ -583,39 +590,61 @@
         
         /* Carousel Indicators (Dots) */
         .carousel-indicator {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background-color: var(--gray-300);
-            border: none;
+            background-color: #CBD5E1; /* Light gray - more visible */
+            border: 2px solid transparent;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0 4px; /* Add spacing between dots */
         }
         
         .carousel-indicator:hover {
-            background-color: var(--gray-400);
-            transform: scale(1.2);
+            background-color: #94A3B8; /* Darker gray on hover */
+            transform: scale(1.3);
         }
         
         .carousel-indicator.active {
             background-color: var(--navy-900);
-            width: 32px;
-            border-radius: 6px;
+            width: 36px; /* Wider pill shape */
+            border-radius: 5px;
+            border-color: var(--navy-900);
         }
         
-        /* Responsive: Hide annotations on mobile, show below */
+        /* Container for indicators - ensure proper spacing */
+        .carousel-indicators-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px; /* Space between indicators */
+            margin-top: 32px;
+            padding: 8px 0;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 1024px) {
-            .annotation-card {
-                display: none !important;
-            }
-            
             .carousel-nav-left {
-                left: 8px;
+                left: 12px;
             }
             
             .carousel-nav-right {
-                right: 8px;
+                right: 12px;
             }
+            
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                background-color: rgba(25, 58, 109, 0.8); /* More opaque on mobile for visibility */
+            }
+        }
+        
+        /* Optional: Add numbers inside dots for extra clarity */
+        .carousel-indicator::after {
+            content: attr(data-slide);
+            display: none; /* Hidden by default, can enable for debugging */
+            font-size: 8px;
+            color: white;
         }
         
     </style>
@@ -1013,10 +1042,10 @@
                         </button>
                         
                         <!-- Carousel Indicators -->
-                        <div class="flex justify-center space-x-2 mt-8">
-                            <button class="carousel-indicator active" data-slide="0"></button>
-                            <button class="carousel-indicator" data-slide="1"></button>
-                            <button class="carousel-indicator" data-slide="2"></button>
+                        <div class="carousel-indicators-container">
+                            <button class="carousel-indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                            <button class="carousel-indicator" data-slide="2" aria-label="Go to slide 3"></button>
                         </div>
                         
                     </div>
