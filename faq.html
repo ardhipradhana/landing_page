@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions | MontPro</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --navy-900: #193A6D;
+            --navy-800: #1F4580;
+            --navy-700: #2B5BA8;
+            --blue-500: #4A90E2;
+            --blue-300: #8BC1FF;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-600: #475569;
+            --gray-900: #0F172A;
+            --green: #10B981;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+        }
+    
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-900);
+        }
+        
+        .text-navy-blue { color: var(--navy-900); }
+        .bg-navy-blue { background-color: var(--navy-900); }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .btn-primary {
+            background-color: var(--navy-900);
+            color: var(--white);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--navy-800);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--navy-900);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: 2px solid var(--navy-900);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--gray-50);
+            transform: translateY(-1px);
+        }
+
+        .btn-icon {
+            gap: 0.5rem;
+        }
+
+        /* FAQ Specific Styles */
+        .faq-category {
+            margin-bottom: 3rem;
+        }
+
+        .faq-category h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--navy-900);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .faq-answer {
+            color: var(--gray-600);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .faq-answer strong {
+            color: var(--navy-900);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="text-off-black bg-gray-50">
+
+    <!-- =========== HEADER / NAVIGATION =========== -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo - Links to homepage -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 ml-48">
+                <a href="index.html#features" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                    <span class="relative z-10">Features</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="pricing.html" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                    <span class="relative z-10">Pricing</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="mailto:support@aapgrp.com" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                    <span class="relative z-10">Contact</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Try It Now
+                </a>
+                
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Book a Demo
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-6 py-4 space-y-3">
+                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
+                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========== MAIN CONTENT =========== -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden py-16 md:py-20 bg-gray-50">
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" style="color: var(--navy-900);">
+                        Frequently Asked Questions
+                    </h1>
+                    <p class="text-lg md:text-xl" style="color: var(--gray-600);">
+                        Everything you need to know. Can't find your answer? <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">Contact us</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Content -->
+        <section class="py-16 md:py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                
+                <!-- Category 1: Product & Features -->
+                <div class="faq-category">
+                    <h2>Product & Features</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How is MontPro different from QuickBooks or Xero?</div>
+                        <div class="faq-answer">
+                            Unlike conventional accounting systems, MontPro includes FP&A (Financial Planning & Analysis) features such as period comparison and budgeting. MontPro also has AI capabilities to help you forecast financials and answer questions instantly, 24/7. QuickBooks and Xero focus primarily on bookkeeping—MontPro is designed to give you actionable insights, not just store data.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Why not just use Excel + QuickBooks?</div>
+                        <div class="faq-answer">
+                            You could. But you'd spend hours updating spreadsheets, manually calculating variance, and trying to forecast runway. MontPro automates this work and provides AI-powered insights—without the busywork. It's designed to replace the Excel workarounds that most finance teams rely on.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What financial reports does MontPro generate?</div>
+                        <div class="faq-answer">
+                            MontPro generates the three standard financial statements: Balance Sheet, Income Statement, and Cash Flow Statement. These reports are generated automatically based on your transaction data.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I import data from my existing accounting software?</div>
+                        <div class="faq-answer">
+                            You can upload CSV files to import transactions from any accounting system. MontPro is designed to be your single source of truth—you're not meant to run multiple systems simultaneously. Export your data from your current software, upload it to MontPro, and start fresh.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Does MontPro integrate with my bank or payment processors?</div>
+                        <div class="faq-answer">
+                            Not yet. Bank connections and payment processor integrations are currently in development. For now, you can upload transaction CSVs from any source. We're focusing on building solid core features before expanding integrations.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What integrations are coming next?</div>
+                        <div class="faq-answer">
+                            Our next major feature is consolidation for multi-entity companies, followed by bank connections. This will allow businesses with multiple entities to get a unified view of their finances. Want something specific? Email us at <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">support@aapgrp.com</a>—we build based on user feedback.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Getting Started -->
+                <div class="faq-category">
+                    <h2>Getting Started</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How long does it take to get started?</div>
+                        <div class="faq-answer">
+                            When you sign in, you'll be prompted to create your organization and set up basic information like currency, email, and company name. This takes approximately 2-3 minutes. After that, you're ready to start using MontPro.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">I'm a founder, not a finance person. Can I still use this?</div>
+                        <div class="faq-answer">
+                            Yes. MontPro is designed for non-finance founders. The AP/AR (Accounts Payable/Receivable) tracking requires no accounting knowledge—simply mark whether money is coming in or going out, add a description, and you're done. For more advanced features like GL (General Ledger) entries, basic accounting knowledge helps, but our AI assistant can guide you through the process.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need accounting knowledge to use MontPro?</div>
+                        <div class="faq-answer">
+                            Basic accounting knowledge is helpful if you plan to input GL transactions, as you'll need to create simple journal entries. However, if you only use the AP/AR tracking feature, no accounting knowledge is required—it's as simple as recording whether money is coming in or going out, along with a reference and description.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I upload historical data?</div>
+                        <div class="faq-answer">
+                            Yes. You can upload historical transaction data via CSV file to get a complete view of your financial history in MontPro.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: For Small Businesses -->
+                <div class="faq-category">
+                    <h2>For Small Businesses</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">My company is too small—is MontPro right for me?</div>
+                        <div class="faq-answer">
+                            MontPro is built for businesses from $500K to $10M in revenue. If you're currently managing finances in spreadsheets and need clarity on cash flow and runway, you're our ideal user—whether you're a team of 2 or 50. Small businesses need financial clarity just as much as larger companies, and MontPro makes that accessible without enterprise complexity or cost.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need to migrate everything at once?</div>
+                        <div class="faq-answer">
+                            No. You can start with AP/AR tracking only and gradually add GL entries as you become more comfortable with the system. Many users begin with cash flow visibility and expand from there. There's no requirement to migrate all your financial data immediately.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Security & Data -->
+                <div class="faq-category">
+                    <h2>Security & Data</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Is my financial data secure?</div>
+                        <div class="faq-answer">
+                            Yes. MontPro uses Supabase, a secure and reliable database platform, to host and protect your financial data. Your data is encrypted and stored with industry-standard security protocols.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I export my data anytime?</div>
+                        <div class="faq-answer">
+                            Yes. You can export your data to CSV format anytime. For GL transactions, you can also export transaction vouchers to PDF. Your data is always accessible and portable.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Is MontPro compliant with Indonesian accounting standards?</div>
+                        <div class="faq-answer">
+                            Yes. MontPro follows standard accounting principles and generates financial statements that comply with Indonesian reporting requirements.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Pricing & Support -->
+                <div class="faq-category">
+                    <h2>Pricing & Support</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What happens after early access ends?</div>
+                        <div class="faq-answer">
+                            Early access is currently free with no set end date. When we officially launch, early adopters will receive a special grand launch pricing of IDR 999K/month for the Enterprise tier (normally IDR 5M/month)—locked in as long as you maintain your subscription. You'll be notified well in advance before any pricing changes take effect.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Can I cancel anytime?</div>
+                        <div class="faq-answer">
+                            Yes. There are no long-term contracts or commitments. You can cancel your subscription at any time.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What if I need help?</div>
+                        <div class="faq-answer">
+                            You can email us at <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">support@aapgrp.com</a> or schedule a call with our team by booking a demo on the main landing page at <a href="https://www.montpro.xyz" class="text-blue-500 hover:underline">www.montpro.xyz</a>. While we don't currently offer structured onboarding support, any assistance can be requested via email or by booking a demo session.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions CTA -->
+                <div class="text-center mt-16 pt-8 border-t border-gray-200">
+                    <h3 class="text-2xl font-bold text-navy-blue mb-4">Still Have Questions?</h3>
+                    <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                        We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="mailto:support@aapgrp.com" class="btn-primary btn-icon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Email Support
+                        </a>
+                        <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-secondary btn-icon">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            Book a Demo
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-6">
+                        <a href="index.html" class="hover:text-navy-blue transition">← Back to Homepage</a>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========== FOOTER =========== -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl" style="background: var(--navy-900);"></div>
+            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl" style="background: var(--blue-500);"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 py-12 relative z-10">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+                
+                <!-- Brand Section -->
+                <div class="md:col-span-2 space-y-4">
+                    <a href="index.html" class="flex items-center space-x-3 group">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <span class="text-2xl font-bold text-navy-blue">MontPro</span>
+                    </a>
+                    <p class="text-gray-600 max-w-md leading-relaxed">
+                        Financial intelligence without the complexity. Make decisions with confidence, all in one place.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: #10B981;"></div>
+                            <span class="text-sm font-medium" style="color: var(--gray-600);">AI-Powered</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);"></div>
+                            <span class="text-sm font-medium" style="color: var(--gray-600);">Live & Ready</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Company Column -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="why.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I Created This</a></li>
+                        <li><a href="pricing.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a></li>
+                        <li><a href="index.html#features" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a></li>
+                        <li><a href="faq.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Legal Column -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
+                    <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
+                    </a>
+                    
+                    <!-- Legal Links -->
+                    <div class="pt-4 space-y-4">
+                        <h3 class="text-lg font-semibold text-navy-blue">Legal</h3>
+                        <div class="space-y-2">
+                            <a href="privacy.html" class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Section - Centered -->
+            <div class="border-t border-gray-300 pt-8 text-center">
+                <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
