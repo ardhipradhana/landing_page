@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | MontPro</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles (Consistent with index.html) -->
     <style>
         :root {
@@ -21,46 +22,71 @@
             --navy-900: #193A6D;
             --navy-800: #1F4580;
             --navy-700: #2B5BA8;
-            
+
             /* SECONDARY - Bright Blue */
             --blue-500: #4A90E2;
             --blue-400: #5FA3F5;
             --blue-300: #8BC1FF;
-            
+
             /* NEUTRAL - Grays */
             --gray-50: #F8FAFC;
             --gray-100: #F1F5F9;
             --gray-600: #475569;
             --gray-900: #0F172A;
-            
+
             /* ACCENT - Functional */
+            --teal-500: #00D4AA;
+            --teal-400: #33DDBB;
+            --teal-600: #00AA88;
+            --shadow-teal: 0 4px 14px 0 rgba(0, 212, 170, 0.39);
             --green: #10B981;
             --orange: #F59E0B;
-            
+
             /* SURFACE */
             --white: #FFFFFF;
             --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
             --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
         }
-    
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--white);
         }
-        
+
         /* Brand Color Classes */
-        .bg-navy-blue { background-color: var(--navy-900); }
-        .text-navy-blue { color: var(--navy-900); }
-        .border-navy-blue { border-color: var(--navy-900); }
-        .hover\:bg-navy-800:hover { background-color: var(--navy-800); }
-        
-        .bg-bright-blue { background-color: var(--blue-500); }
-        .text-bright-blue { color: var(--blue-500); }
-        
-        .bg-light-gray { background-color: var(--gray-50); }
-        .text-off-black { color: var(--gray-900); }
-        
+        .bg-navy-blue {
+            background-color: var(--navy-900);
+        }
+
+        .text-navy-blue {
+            color: var(--navy-900);
+        }
+
+        .border-navy-blue {
+            border-color: var(--navy-900);
+        }
+
+        .hover\:bg-navy-800:hover {
+            background-color: var(--navy-800);
+        }
+
+        .bg-bright-blue {
+            background-color: var(--blue-500);
+        }
+
+        .text-bright-blue {
+            color: var(--blue-500);
+        }
+
+        .bg-light-gray {
+            background-color: var(--gray-50);
+        }
+
+        .text-off-black {
+            color: var(--gray-900);
+        }
+
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
@@ -78,12 +104,36 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid transparent;
         }
-        
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
         .btn-primary:hover {
             background-color: var(--navy-800);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-1px);
+            box-shadow: 0 10px 25px -5px rgba(25, 58, 109, 0.3);
+            transform: translateY(-2px);
+            border-top-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
         }
 
         .btn-secondary {
@@ -99,7 +149,7 @@
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--gray-50);
             transform: translateY(-1px);
@@ -131,7 +181,8 @@
             margin-bottom: 0.75rem;
         }
 
-        .policy-section p, .policy-section li {
+        .policy-section p,
+        .policy-section li {
             color: var(--gray-600);
             line-height: 1.8;
             margin-bottom: 1rem;
@@ -162,6 +213,7 @@
         }
     </style>
 </head>
+
 <body class="text-off-black">
 
     <!-- =========== HEADER / NAVIGATION (Same as index.html) =========== -->
@@ -169,48 +221,64 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo - Links to homepage -->
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                    class="h-12 w-auto">
                 <span class="text-2xl font-bold text-navy-blue">MontPro</span>
             </a>
-            
+
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8 ml-48">
-                <a href="index.html#features" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="index.html#features"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Features</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="pricing.html" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="pricing.html"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Pricing</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="mailto:support@aapgrp.com" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="relative transition-all duration-300 group font-medium" style="color: #00D4AA;">
+                    <span class="relative z-10">About the Founder</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                        style="background-color: #00D4AA;"></span>
+                </a>
+                <a href="mailto:support@aapgrp.com"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Contact</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </div>
-            
+
             <!-- CTA Button -->
             <div class="hidden md:flex items-center space-x-3">
                 <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Try It Now
                 </a>
-                
+
                 <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Book a Demo
                 </a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -219,23 +287,32 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-6 py-4 space-y-3">
-                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
-                <a href="pricing.html" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
-                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
-                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+                <a href="index.html#features"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="block font-medium transition duration-300 py-2" style="color: #00D4AA;">About the Founder
+                    →</a>
+                <a href="mailto:support@aapgrp.com"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                    class="btn-primary w-full mt-4">Book a Demo</a>
             </div>
         </div>
-        
+
     </header>
 
     <!-- =========== MAIN CONTENT =========== -->
     <main>
         <!-- Hero Section (Simplified for Policy Page) -->
-        <section class="relative overflow-hidden py-16 md:py-20" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
+        <section class="relative overflow-hidden py-16 md:py-20"
+            style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-10" style="background: var(--blue-300);"></div>
+                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-10"
+                    style="background: var(--blue-300);"></div>
             </div>
-            
+
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto">
                     <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" style="color: var(--navy-900);">
@@ -251,7 +328,7 @@
         <!-- Privacy Policy Content -->
         <section class="py-16 md:py-20">
             <div class="container mx-auto px-6 max-w-4xl">
-                
+
                 <!-- Last Updated Notice -->
                 <div class="last-updated">
                     <p class="text-sm font-semibold text-gray-700">
@@ -262,40 +339,54 @@
                 <!-- Introduction -->
                 <div class="policy-section">
                     <p>
-                        At MontPro ("we," "us," or "our"), we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial intelligence platform and services (collectively, the "Services").
+                        At MontPro ("we," "us," or "our"), we respect your privacy and are committed to protecting your
+                        personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard
+                        your information when you use our financial intelligence platform and services (collectively,
+                        the "Services").
                     </p>
                     <p>
-                        By accessing or using our Services, you agree to this Privacy Policy. If you do not agree with the terms of this Privacy Policy, please do not access or use the Services.
+                        By accessing or using our Services, you agree to this Privacy Policy. If you do not agree with
+                        the terms of this Privacy Policy, please do not access or use the Services.
                     </p>
                 </div>
 
                 <!-- 1. Information We Collect -->
                 <div class="policy-section">
                     <h2>1. Information We Collect</h2>
-                    
+
                     <h3>1.1 Information You Provide to Us</h3>
                     <p>We collect information that you voluntarily provide when you:</p>
                     <ul>
-                        <li><strong>Create an account:</strong> Name, email address, company name, job title, phone number, and password</li>
-                        <li><strong>Use our Services:</strong> Financial data (transaction records, account balances, revenue, expenses), business information, and any other data you choose to upload or input</li>
-                        <li><strong>Contact us:</strong> Any information you provide when you communicate with our support team or submit inquiries</li>
-                        <li><strong>Participate in surveys or promotions:</strong> Feedback, preferences, and demographic information</li>
+                        <li><strong>Create an account:</strong> Name, email address, company name, job title, phone
+                            number, and password</li>
+                        <li><strong>Use our Services:</strong> Financial data (transaction records, account balances,
+                            revenue, expenses), business information, and any other data you choose to upload or input
+                        </li>
+                        <li><strong>Contact us:</strong> Any information you provide when you communicate with our
+                            support team or submit inquiries</li>
+                        <li><strong>Participate in surveys or promotions:</strong> Feedback, preferences, and
+                            demographic information</li>
                     </ul>
 
                     <h3>1.2 Information Collected Automatically</h3>
                     <p>When you access or use our Services, we automatically collect certain information, including:</p>
                     <ul>
-                        <li><strong>Usage data:</strong> Features accessed, pages viewed, time spent, click patterns, and interaction data</li>
-                        <li><strong>Device information:</strong> IP address, browser type, operating system, device identifiers, and mobile network information</li>
-                        <li><strong>Cookies and tracking technologies:</strong> We use cookies, web beacons, and similar technologies to enhance your experience and analyze usage patterns</li>
+                        <li><strong>Usage data:</strong> Features accessed, pages viewed, time spent, click patterns,
+                            and interaction data</li>
+                        <li><strong>Device information:</strong> IP address, browser type, operating system, device
+                            identifiers, and mobile network information</li>
+                        <li><strong>Cookies and tracking technologies:</strong> We use cookies, web beacons, and similar
+                            technologies to enhance your experience and analyze usage patterns</li>
                     </ul>
 
                     <h3>1.3 Information from Third Parties</h3>
                     <p>We may receive information about you from:</p>
                     <ul>
                         <li>Business partners and service providers</li>
-                        <li>Publicly available sources (e.g., company registries, financial databases for benchmarking)</li>
-                        <li>Third-party authentication services (if you choose to sign in using Google, Microsoft, or other providers)</li>
+                        <li>Publicly available sources (e.g., company registries, financial databases for benchmarking)
+                        </li>
+                        <li>Third-party authentication services (if you choose to sign in using Google, Microsoft, or
+                            other providers)</li>
                     </ul>
                 </div>
 
@@ -304,21 +395,29 @@
                     <h2>2. How We Use Your Information</h2>
                     <p>We use the information we collect for the following purposes:</p>
                     <ul>
-                        <li><strong>Provide and improve our Services:</strong> Deliver core functionality, generate financial reports, provide forecasts, and enhance user experience</li>
-                        <li><strong>Personalization:</strong> Tailor features, recommendations, and content to your specific needs</li>
-                        <li><strong>Communication:</strong> Send service updates, security alerts, support messages, and marketing communications (with your consent)</li>
-                        <li><strong>Analytics and insights:</strong> Analyze usage patterns to improve our platform and develop new features</li>
-                        <li><strong>Security and fraud prevention:</strong> Detect, prevent, and respond to security incidents, fraud, and illegal activities</li>
-                        <li><strong>Compliance:</strong> Meet legal obligations, enforce our terms of service, and respond to legal requests</li>
-                        <li><strong>Research and development:</strong> Develop new products, features, and technologies, including AI/ML models (using anonymized or aggregated data)</li>
+                        <li><strong>Provide and improve our Services:</strong> Deliver core functionality, generate
+                            financial reports, provide forecasts, and enhance user experience</li>
+                        <li><strong>Personalization:</strong> Tailor features, recommendations, and content to your
+                            specific needs</li>
+                        <li><strong>Communication:</strong> Send service updates, security alerts, support messages, and
+                            marketing communications (with your consent)</li>
+                        <li><strong>Analytics and insights:</strong> Analyze usage patterns to improve our platform and
+                            develop new features</li>
+                        <li><strong>Security and fraud prevention:</strong> Detect, prevent, and respond to security
+                            incidents, fraud, and illegal activities</li>
+                        <li><strong>Compliance:</strong> Meet legal obligations, enforce our terms of service, and
+                            respond to legal requests</li>
+                        <li><strong>Research and development:</strong> Develop new products, features, and technologies,
+                            including AI/ML models (using anonymized or aggregated data)</li>
                     </ul>
                 </div>
 
                 <!-- 3. How We Share Your Information -->
                 <div class="policy-section">
                     <h2>3. How We Share Your Information</h2>
-                    <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
-                    
+                    <p>We do not sell your personal information. We may share your information in the following
+                        circumstances:</p>
+
                     <h3>3.1 With Your Consent</h3>
                     <p>We share information when you explicitly authorize us to do so.</p>
 
@@ -331,19 +430,25 @@
                         <li>Analytics and monitoring services</li>
                         <li>AI/ML service providers (e.g., Anthropic for AI features)</li>
                     </ul>
-                    <p>These service providers are contractually obligated to protect your information and use it only for the purposes we specify.</p>
+                    <p>These service providers are contractually obligated to protect your information and use it only
+                        for the purposes we specify.</p>
 
                     <h3>3.3 Business Transfers</h3>
-                    <p>If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, or sale of assets, your information may be transferred as part of that transaction.</p>
+                    <p>If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, or sale of
+                        assets, your information may be transferred as part of that transaction.</p>
 
                     <h3>3.4 Legal Requirements</h3>
-                    <p>We may disclose information if required to do so by law or in response to valid requests by public authorities (e.g., court orders, subpoenas).</p>
+                    <p>We may disclose information if required to do so by law or in response to valid requests by
+                        public authorities (e.g., court orders, subpoenas).</p>
 
                     <h3>3.5 Protection of Rights</h3>
-                    <p>We may disclose information when we believe it is necessary to investigate, prevent, or take action regarding potential violations of our terms, fraud, or threats to the safety of any person.</p>
+                    <p>We may disclose information when we believe it is necessary to investigate, prevent, or take
+                        action regarding potential violations of our terms, fraud, or threats to the safety of any
+                        person.</p>
 
                     <h3>3.6 Aggregated and Anonymized Data</h3>
-                    <p>We may share aggregated or anonymized data that cannot reasonably be used to identify you for research, benchmarking, or marketing purposes.</p>
+                    <p>We may share aggregated or anonymized data that cannot reasonably be used to identify you for
+                        research, benchmarking, or marketing purposes.</p>
                 </div>
 
                 <!-- 4. Data Security -->
@@ -358,30 +463,40 @@
                         <li>Secure data centers with physical and logical safeguards</li>
                     </ul>
                     <p>
-                        However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee its absolute security.
+                        However, no method of transmission over the internet or electronic storage is 100% secure. While
+                        we strive to use commercially acceptable means to protect your information, we cannot guarantee
+                        its absolute security.
                     </p>
                 </div>
 
                 <!-- 5. Your Rights and Choices -->
                 <div class="policy-section">
                     <h2>5. Your Rights and Choices</h2>
-                    <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+                    <p>Depending on your location, you may have the following rights regarding your personal
+                        information:</p>
                     <ul>
                         <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
-                        <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete information</li>
-                        <li><strong>Deletion:</strong> Request that we delete your personal information (subject to certain exceptions)</li>
-                        <li><strong>Portability:</strong> Request that we provide your data in a structured, commonly used format</li>
+                        <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete information
+                        </li>
+                        <li><strong>Deletion:</strong> Request that we delete your personal information (subject to
+                            certain exceptions)</li>
+                        <li><strong>Portability:</strong> Request that we provide your data in a structured, commonly
+                            used format</li>
                         <li><strong>Opt-out:</strong> Unsubscribe from marketing communications at any time</li>
                         <li><strong>Restrict processing:</strong> Request that we limit how we use your information</li>
-                        <li><strong>Object to processing:</strong> Object to our processing of your information for certain purposes</li>
+                        <li><strong>Object to processing:</strong> Object to our processing of your information for
+                            certain purposes</li>
                     </ul>
                     <p>
-                        To exercise these rights, please contact us at <a href="mailto:support@aapgrp.com">support@aapgrp.com</a>. We will respond to your request within 30 days.
+                        To exercise these rights, please contact us at <a
+                            href="mailto:support@aapgrp.com">support@aapgrp.com</a>. We will respond to your request
+                        within 30 days.
                     </p>
 
                     <h3>Cookie Preferences</h3>
                     <p>
-                        You can manage cookie preferences through your browser settings. Note that disabling cookies may affect the functionality of our Services.
+                        You can manage cookie preferences through your browser settings. Note that disabling cookies may
+                        affect the functionality of our Services.
                     </p>
                 </div>
 
@@ -389,7 +504,9 @@
                 <div class="policy-section">
                     <h2>6. Data Retention</h2>
                     <p>
-                        We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When determining the retention period, we consider:
+                        We retain your personal information for as long as necessary to fulfill the purposes outlined in
+                        this Privacy Policy, unless a longer retention period is required or permitted by law. When
+                        determining the retention period, we consider:
                     </p>
                     <ul>
                         <li>The nature and sensitivity of the information</li>
@@ -406,10 +523,13 @@
                 <div class="policy-section">
                     <h2>7. International Data Transfers</h2>
                     <p>
-                        Your information may be transferred to, stored, and processed in countries other than your own. These countries may have different data protection laws than your jurisdiction.
+                        Your information may be transferred to, stored, and processed in countries other than your own.
+                        These countries may have different data protection laws than your jurisdiction.
                     </p>
                     <p>
-                        When we transfer your information internationally, we implement appropriate safeguards, such as standard contractual clauses approved by relevant authorities, to ensure your data receives adequate protection.
+                        When we transfer your information internationally, we implement appropriate safeguards, such as
+                        standard contractual clauses approved by relevant authorities, to ensure your data receives
+                        adequate protection.
                     </p>
                 </div>
 
@@ -417,7 +537,10 @@
                 <div class="policy-section">
                     <h2>8. Children's Privacy</h2>
                     <p>
-                        Our Services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child without parental consent, we will take steps to delete that information.
+                        Our Services are not intended for individuals under the age of 18. We do not knowingly collect
+                        personal information from children. If we become aware that we have collected personal
+                        information from a child without parental consent, we will take steps to delete that
+                        information.
                     </p>
                 </div>
 
@@ -425,7 +548,9 @@
                 <div class="policy-section">
                     <h2>9. Third-Party Links and Services</h2>
                     <p>
-                        Our Services may contain links to third-party websites or integrate with third-party services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information.
+                        Our Services may contain links to third-party websites or integrate with third-party services.
+                        We are not responsible for the privacy practices of these third parties. We encourage you to
+                        review their privacy policies before providing any personal information.
                     </p>
                 </div>
 
@@ -433,15 +558,18 @@
                 <div class="policy-section">
                     <h2>10. Changes to This Privacy Policy</h2>
                     <p>
-                        We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will:
+                        We may update this Privacy Policy from time to time to reflect changes in our practices,
+                        technology, legal requirements, or other factors. When we make changes, we will:
                     </p>
                     <ul>
                         <li>Update the "Last Updated" date at the top of this policy</li>
                         <li>Notify you via email or through a prominent notice on our platform</li>
-                        <li>For material changes, provide you with an opportunity to review the changes before they take effect</li>
+                        <li>For material changes, provide you with an opportunity to review the changes before they take
+                            effect</li>
                     </ul>
                     <p>
-                        We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
+                        We encourage you to review this Privacy Policy periodically to stay informed about how we
+                        protect your information.
                     </p>
                 </div>
 
@@ -449,7 +577,8 @@
                 <div class="policy-section">
                     <h2>11. Contact Us</h2>
                     <p>
-                        If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us:
+                        If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy
+                        practices, please contact us:
                     </p>
                     <p style="margin-top: 1rem;">
                         <strong>Email:</strong> <a href="mailto:support@aapgrp.com">support@aapgrp.com</a><br>
@@ -457,7 +586,8 @@
                         <strong>Website:</strong> <a href="https://www.montpro.xyz">www.montpro.xyz</a>
                     </p>
                     <p style="margin-top: 1rem;">
-                        We are committed to resolving privacy concerns promptly and will respond to your inquiry within 30 days.
+                        We are committed to resolving privacy concerns promptly and will respond to your inquiry within
+                        30 days.
                     </p>
                 </div>
 
@@ -469,18 +599,21 @@
     <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t border-gray-200">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
-            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl" style="background: var(--navy-900);"></div>
-            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl" style="background: var(--blue-500);"></div>
+            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl"
+                style="background: var(--navy-900);"></div>
+            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl"
+                style="background: var(--blue-500);"></div>
         </div>
-        
+
         <div class="container mx-auto px-6 py-12 relative z-10">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                
+
                 <!-- Brand Section (2 columns width) -->
                 <div class="md:col-span-2 space-y-4">
                     <a href="index.html" class="flex items-center space-x-3 group">
-                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                            class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
                         <span class="text-2xl font-bold text-navy-blue">MontPro</span>
                     </a>
                     <p class="text-gray-600 max-w-md leading-relaxed">
@@ -492,41 +625,60 @@
                             <span class="text-sm font-medium" style="color: var(--gray-600);">AI-Powered</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);"></div>
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);">
+                            </div>
                             <span class="text-sm font-medium" style="color: var(--gray-600);">Live & Ready</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Company Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="why.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I Created This</a></li>
-                        <li><a href="pricing.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a></li>
-                        <li><a href="index.html#features" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a></li>
-                        <li><a href="faq.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a></li>
+                        <li><a href="https://ardhipradhana.com" target="_blank"
+                                class="text-sm font-medium transition-colors duration-300"
+                                style="color: var(--teal-500);">About the Founder →</a></li>
+                        <li><a href="why.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I
+                                Created This</a></li>
+                        <li><a href="pricing.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a>
+                        </li>
+                        <li><a href="index.html#features"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a>
+                        </li>
+                        <li><a href="faq.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a>
+                        </li>
                     </ul>
                 </div>
-    
+
                 <!-- Contact & Legal Column -->
                 <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
-                        <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
-                        </a>
-                        
-                        <!-- Legal Links -->
-                        <div class="pt-6 space-y-2">
-                            <a href="privacy.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
-                        </div>
+                    <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
+                    <a href="mailto:support@aapgrp.com"
+                        class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
+                    </a>
+
+                    <!-- Legal Links -->
+                    <div class="pt-6 space-y-2">
+                        <a href="privacy.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy
+                            Policy</a>
+                        <a href="terms.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms
+                            of Service</a>
                     </div>
+                </div>
             </div>
-            
+
             <!-- Bottom Section - Centered -->
             <div class="border-t border-gray-300 pt-8 text-center">
                 <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
@@ -536,10 +688,11 @@
 
     <!-- Mobile Menu Toggle Script -->
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
     </script>
 
 </body>
+
 </html>

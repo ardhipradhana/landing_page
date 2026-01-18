@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | MontPro</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles (Consistent with index.html) -->
     <style>
         :root {
@@ -21,46 +22,71 @@
             --navy-900: #193A6D;
             --navy-800: #1F4580;
             --navy-700: #2B5BA8;
-            
+
             /* SECONDARY - Bright Blue */
             --blue-500: #4A90E2;
             --blue-400: #5FA3F5;
             --blue-300: #8BC1FF;
-            
+
             /* NEUTRAL - Grays */
             --gray-50: #F8FAFC;
             --gray-100: #F1F5F9;
             --gray-600: #475569;
             --gray-900: #0F172A;
-            
+
             /* ACCENT - Functional */
+            --teal-500: #00D4AA;
+            --teal-400: #33DDBB;
+            --teal-600: #00AA88;
+            --shadow-teal: 0 4px 14px 0 rgba(0, 212, 170, 0.39);
             --green: #10B981;
             --orange: #F59E0B;
-            
+
             /* SURFACE */
             --white: #FFFFFF;
             --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
             --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
         }
-    
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--white);
         }
-        
+
         /* Brand Color Classes */
-        .bg-navy-blue { background-color: var(--navy-900); }
-        .text-navy-blue { color: var(--navy-900); }
-        .border-navy-blue { border-color: var(--navy-900); }
-        .hover\:bg-navy-800:hover { background-color: var(--navy-800); }
-        
-        .bg-bright-blue { background-color: var(--blue-500); }
-        .text-bright-blue { color: var(--blue-500); }
-        
-        .bg-light-gray { background-color: var(--gray-50); }
-        .text-off-black { color: var(--gray-900); }
-        
+        .bg-navy-blue {
+            background-color: var(--navy-900);
+        }
+
+        .text-navy-blue {
+            color: var(--navy-900);
+        }
+
+        .border-navy-blue {
+            border-color: var(--navy-900);
+        }
+
+        .hover\:bg-navy-800:hover {
+            background-color: var(--navy-800);
+        }
+
+        .bg-bright-blue {
+            background-color: var(--blue-500);
+        }
+
+        .text-bright-blue {
+            color: var(--blue-500);
+        }
+
+        .bg-light-gray {
+            background-color: var(--gray-50);
+        }
+
+        .text-off-black {
+            color: var(--gray-900);
+        }
+
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
@@ -78,12 +104,36 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border-top: 2px solid transparent;
         }
-        
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal-400), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
         .btn-primary:hover {
             background-color: var(--navy-800);
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-1px);
+            box-shadow: 0 10px 25px -5px rgba(25, 58, 109, 0.3);
+            transform: translateY(-2px);
+            border-top-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
         }
 
         .btn-secondary {
@@ -99,7 +149,7 @@
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--gray-50);
             transform: translateY(-1px);
@@ -131,13 +181,15 @@
             margin-bottom: 0.75rem;
         }
 
-        .terms-section p, .terms-section li {
+        .terms-section p,
+        .terms-section li {
             color: var(--gray-600);
             line-height: 1.8;
             margin-bottom: 1rem;
         }
 
-        .terms-section ul, .terms-section ol {
+        .terms-section ul,
+        .terms-section ol {
             margin-left: 1.5rem;
             margin-bottom: 1rem;
         }
@@ -182,6 +234,7 @@
         }
     </style>
 </head>
+
 <body class="text-off-black">
 
     <!-- =========== HEADER / NAVIGATION (Same as index.html) =========== -->
@@ -189,48 +242,64 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo - Links to homepage -->
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                    class="h-12 w-auto">
                 <span class="text-2xl font-bold text-navy-blue">MontPro</span>
             </a>
-            
+
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8 ml-48">
-                <a href="index.html#features" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="index.html#features"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Features</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="pricing.html" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="pricing.html"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Pricing</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="mailto:support@aapgrp.com" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="relative transition-all duration-300 group font-medium" style="color: #00D4AA;">
+                    <span class="relative z-10">About the Founder</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                        style="background-color: #00D4AA;"></span>
+                </a>
+                <a href="mailto:support@aapgrp.com"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Contact</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </div>
-            
+
             <!-- CTA Button -->
             <div class="hidden md:flex items-center space-x-3">
                 <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Try It Now
                 </a>
-                
+
                 <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Book a Demo
                 </a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -239,23 +308,32 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-6 py-4 space-y-3">
-                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
-                <a href="pricing.html" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
-                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
-                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+                <a href="index.html#features"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="block font-medium transition duration-300 py-2" style="color: #00D4AA;">About the Founder
+                    →</a>
+                <a href="mailto:support@aapgrp.com"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                    class="btn-primary w-full mt-4">Book a Demo</a>
             </div>
         </div>
-        
+
     </header>
 
     <!-- =========== MAIN CONTENT =========== -->
     <main>
         <!-- Hero Section (Simplified for Terms Page) -->
-        <section class="relative overflow-hidden py-16 md:py-20" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
+        <section class="relative overflow-hidden py-16 md:py-20"
+            style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-10" style="background: var(--blue-300);"></div>
+                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-10"
+                    style="background: var(--blue-300);"></div>
             </div>
-            
+
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto">
                     <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" style="color: var(--navy-900);">
@@ -271,7 +349,7 @@
         <!-- Terms of Service Content -->
         <section class="py-16 md:py-20">
             <div class="container mx-auto px-6 max-w-4xl">
-                
+
                 <!-- Last Updated Notice -->
                 <div class="last-updated">
                     <p class="text-sm font-semibold text-gray-700">
@@ -282,10 +360,13 @@
                 <!-- Introduction -->
                 <div class="terms-section">
                     <p>
-                        Welcome to MontPro! These Terms of Service ("Terms") govern your access to and use of MontPro's financial intelligence platform and services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.
+                        Welcome to MontPro! These Terms of Service ("Terms") govern your access to and use of MontPro's
+                        financial intelligence platform and services (collectively, the "Services"). By accessing or
+                        using our Services, you agree to be bound by these Terms.
                     </p>
                     <p>
-                        Please read these Terms carefully. If you do not agree to these Terms, do not access or use the Services.
+                        Please read these Terms carefully. If you do not agree to these Terms, do not access or use the
+                        Services.
                     </p>
                 </div>
 
@@ -293,7 +374,10 @@
                 <div class="terms-section">
                     <h2>1. Acceptance of Terms</h2>
                     <p>
-                        By creating an account, accessing, or using MontPro, you acknowledge that you have read, understood, and agree to be bound by these Terms and our <a href="privacy.html">Privacy Policy</a>. If you are using the Services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.
+                        By creating an account, accessing, or using MontPro, you acknowledge that you have read,
+                        understood, and agree to be bound by these Terms and our <a href="privacy.html">Privacy
+                            Policy</a>. If you are using the Services on behalf of an organization, you represent that
+                        you have the authority to bind that organization to these Terms.
                     </p>
                 </div>
 
@@ -312,10 +396,12 @@
                 <!-- 3. Account Registration and Security -->
                 <div class="terms-section">
                     <h2>3. Account Registration and Security</h2>
-                    
+
                     <h3>3.1 Account Creation</h3>
                     <p>
-                        To use certain features of the Services, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep your account information updated.
+                        To use certain features of the Services, you must create an account. You agree to provide
+                        accurate, current, and complete information during registration and to keep your account
+                        information updated.
                     </p>
 
                     <h3>3.2 Account Security</h3>
@@ -340,14 +426,17 @@
                 <!-- 4. Use of Services -->
                 <div class="terms-section">
                     <h2>4. Use of Services</h2>
-                    
+
                     <h3>4.1 License Grant</h3>
                     <p>
-                        Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Services for your internal business purposes.
+                        Subject to your compliance with these Terms, we grant you a limited, non-exclusive,
+                        non-transferable, revocable license to access and use the Services for your internal business
+                        purposes.
                     </p>
 
                     <h3>4.2 Acceptable Use</h3>
-                    <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
+                    <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. You
+                        agree NOT to:</p>
                     <ul>
                         <li>Violate any applicable laws, regulations, or third-party rights</li>
                         <li>Use the Services for any illegal, fraudulent, or malicious activity</li>
@@ -362,42 +451,50 @@
 
                     <h3>4.3 Beta Features</h3>
                     <p>
-                        We may offer beta or experimental features marked as "Beta," "Early Access," or similar designations. These features are provided "as-is" and may be changed or discontinued at any time without notice.
+                        We may offer beta or experimental features marked as "Beta," "Early Access," or similar
+                        designations. These features are provided "as-is" and may be changed or discontinued at any time
+                        without notice.
                     </p>
                 </div>
 
                 <!-- 5. Your Data -->
                 <div class="terms-section">
                     <h2>5. Your Data</h2>
-                    
+
                     <h3>5.1 Ownership</h3>
                     <p>
-                        You retain all rights to the financial data, business information, and other content you upload to the Services ("Your Data"). You grant us a license to use, store, and process Your Data solely to provide and improve the Services.
+                        You retain all rights to the financial data, business information, and other content you upload
+                        to the Services ("Your Data"). You grant us a license to use, store, and process Your Data
+                        solely to provide and improve the Services.
                     </p>
 
                     <h3>5.2 Data Accuracy</h3>
                     <p>
-                        You are responsible for the accuracy, quality, and legality of Your Data. We are not responsible for any errors, losses, or damages resulting from inaccurate or incomplete data.
+                        You are responsible for the accuracy, quality, and legality of Your Data. We are not responsible
+                        for any errors, losses, or damages resulting from inaccurate or incomplete data.
                     </p>
 
                     <h3>5.3 Data Backup</h3>
                     <p>
-                        While we implement industry-standard backup procedures, you are responsible for maintaining your own backup copies of Your Data. We recommend regularly exporting your data.
+                        While we implement industry-standard backup procedures, you are responsible for maintaining your
+                        own backup copies of Your Data. We recommend regularly exporting your data.
                     </p>
 
                     <h3>5.4 Data Security</h3>
                     <p>
-                        We implement reasonable security measures to protect Your Data. However, no system is completely secure. You acknowledge that you use the Services at your own risk.
+                        We implement reasonable security measures to protect Your Data. However, no system is completely
+                        secure. You acknowledge that you use the Services at your own risk.
                     </p>
                 </div>
 
                 <!-- 6. Subscription and Payment -->
                 <div class="terms-section">
                     <h2>6. Subscription and Payment</h2>
-                    
+
                     <h3>6.1 Subscription Plans</h3>
                     <p>
-                        We offer various subscription plans with different features and pricing. Current pricing is available on our website and may be updated from time to time with notice.
+                        We offer various subscription plans with different features and pricing. Current pricing is
+                        available on our website and may be updated from time to time with notice.
                     </p>
 
                     <h3>6.2 Payment Terms</h3>
@@ -410,27 +507,33 @@
 
                     <h3>6.3 Free Trials</h3>
                     <p>
-                        We may offer free trial periods. At the end of the trial, you will be automatically charged unless you cancel before the trial ends. Trial terms and limitations will be specified when you sign up.
+                        We may offer free trial periods. At the end of the trial, you will be automatically charged
+                        unless you cancel before the trial ends. Trial terms and limitations will be specified when you
+                        sign up.
                     </p>
 
                     <h3>6.4 Price Changes</h3>
                     <p>
-                        We may change our pricing with 30 days' advance notice. If you do not agree to the price change, you may cancel your subscription before the new price takes effect.
+                        We may change our pricing with 30 days' advance notice. If you do not agree to the price change,
+                        you may cancel your subscription before the new price takes effect.
                     </p>
 
                     <h3>6.5 Late Payment</h3>
                     <p>
-                        If payment fails, we may suspend or terminate your access to the Services until payment is received. We may charge late fees for overdue payments.
+                        If payment fails, we may suspend or terminate your access to the Services until payment is
+                        received. We may charge late fees for overdue payments.
                     </p>
                 </div>
 
                 <!-- 7. Cancellation and Termination -->
                 <div class="terms-section">
                     <h2>7. Cancellation and Termination</h2>
-                    
+
                     <h3>7.1 Cancellation by You</h3>
                     <p>
-                        You may cancel your subscription at any time through your account settings or by contacting us. Cancellation will take effect at the end of your current billing period. You will continue to have access until then, but no refunds will be provided for the remaining time.
+                        You may cancel your subscription at any time through your account settings or by contacting us.
+                        Cancellation will take effect at the end of your current billing period. You will continue to
+                        have access until then, but no refunds will be provided for the remaining time.
                     </p>
 
                     <h3>7.2 Termination by Us</h3>
@@ -453,34 +556,39 @@
 
                     <h3>7.4 Data Export</h3>
                     <p>
-                        Before cancellation or termination, you should export Your Data. We will provide a reasonable opportunity (at least 30 days) for you to retrieve your data before permanent deletion.
+                        Before cancellation or termination, you should export Your Data. We will provide a reasonable
+                        opportunity (at least 30 days) for you to retrieve your data before permanent deletion.
                     </p>
                 </div>
 
                 <!-- 8. Intellectual Property -->
                 <div class="terms-section">
                     <h2>8. Intellectual Property</h2>
-                    
+
                     <h3>8.1 Our Rights</h3>
                     <p>
-                        The Services, including all software, algorithms, designs, graphics, text, and other content (excluding Your Data), are owned by MontPro and protected by intellectual property laws. You may not copy, modify, distribute, or create derivative works without our express written permission.
+                        The Services, including all software, algorithms, designs, graphics, text, and other content
+                        (excluding Your Data), are owned by MontPro and protected by intellectual property laws. You may
+                        not copy, modify, distribute, or create derivative works without our express written permission.
                     </p>
 
                     <h3>8.2 Trademarks</h3>
                     <p>
-                        "MontPro" and our logos are trademarks of MontPro. You may not use our trademarks without prior written consent.
+                        "MontPro" and our logos are trademarks of MontPro. You may not use our trademarks without prior
+                        written consent.
                     </p>
 
                     <h3>8.3 Feedback</h3>
                     <p>
-                        If you provide feedback, suggestions, or ideas about the Services, we may use them without any obligation to compensate you. You grant us a perpetual, worldwide license to use such feedback.
+                        If you provide feedback, suggestions, or ideas about the Services, we may use them without any
+                        obligation to compensate you. You grant us a perpetual, worldwide license to use such feedback.
                     </p>
                 </div>
 
                 <!-- 9. Disclaimers and Limitations -->
                 <div class="terms-section">
                     <h2>9. Disclaimers and Limitations</h2>
-                    
+
                     <div class="important-notice">
                         <p>
                             <strong>Important:</strong> Please read this section carefully as it limits our liability.
@@ -489,36 +597,47 @@
 
                     <h3>9.1 "As-Is" Disclaimer</h3>
                     <p>
-                        THE SERVICES ARE PROVIDED "AS-IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+                        THE SERVICES ARE PROVIDED "AS-IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER
+                        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+                        FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
                     </p>
 
                     <h3>9.2 No Financial Advice</h3>
                     <p>
-                        MontPro is a financial data analysis tool, NOT a financial advisor. The Services do not constitute financial, investment, tax, or legal advice. You should consult qualified professionals before making financial decisions. We are not responsible for any financial losses resulting from your use of the Services.
+                        MontPro is a financial data analysis tool, NOT a financial advisor. The Services do not
+                        constitute financial, investment, tax, or legal advice. You should consult qualified
+                        professionals before making financial decisions. We are not responsible for any financial losses
+                        resulting from your use of the Services.
                     </p>
 
                     <h3>9.3 Data Accuracy</h3>
                     <p>
-                        While we strive for accuracy, we do not warrant that the Services will be error-free, accurate, or reliable. AI-generated forecasts and recommendations are estimates based on historical data and may not reflect future performance.
+                        While we strive for accuracy, we do not warrant that the Services will be error-free, accurate,
+                        or reliable. AI-generated forecasts and recommendations are estimates based on historical data
+                        and may not reflect future performance.
                     </p>
 
                     <h3>9.4 Availability</h3>
                     <p>
-                        We do not guarantee that the Services will be available at all times. We may experience downtime for maintenance, upgrades, or due to factors beyond our control.
+                        We do not guarantee that the Services will be available at all times. We may experience downtime
+                        for maintenance, upgrades, or due to factors beyond our control.
                     </p>
 
                     <h3>9.5 Third-Party Services</h3>
                     <p>
-                        The Services may integrate with or link to third-party services. We are not responsible for the availability, accuracy, or content of third-party services.
+                        The Services may integrate with or link to third-party services. We are not responsible for the
+                        availability, accuracy, or content of third-party services.
                     </p>
                 </div>
 
                 <!-- 10. Limitation of Liability -->
                 <div class="terms-section">
                     <h2>10. Limitation of Liability</h2>
-                    
+
                     <p>
-                        TO THE MAXIMUM EXTENT PERMITTED BY LAW, MONTPRO SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, OR BUSINESS OPPORTUNITIES ARISING FROM:
+                        TO THE MAXIMUM EXTENT PERMITTED BY LAW, MONTPRO SHALL NOT BE LIABLE FOR ANY INDIRECT,
+                        INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA,
+                        OR BUSINESS OPPORTUNITIES ARISING FROM:
                     </p>
                     <ul>
                         <li>Your use or inability to use the Services</li>
@@ -528,11 +647,15 @@
                     </ul>
 
                     <p>
-                        OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE 12 MONTHS PRECEDING THE CLAIM, OR $100 USD, WHICHEVER IS GREATER.
+                        OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM THESE TERMS OR THE SERVICES SHALL NOT
+                        EXCEED THE AMOUNT YOU PAID TO US IN THE 12 MONTHS PRECEDING THE CLAIM, OR $100 USD, WHICHEVER IS
+                        GREATER.
                     </p>
 
                     <p>
-                        Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for incidental or consequential damages. In such jurisdictions, our liability will be limited to the maximum extent permitted by law.
+                        Some jurisdictions do not allow the exclusion of certain warranties or the limitation of
+                        liability for incidental or consequential damages. In such jurisdictions, our liability will be
+                        limited to the maximum extent permitted by law.
                     </p>
                 </div>
 
@@ -540,7 +663,9 @@
                 <div class="terms-section">
                     <h2>11. Indemnification</h2>
                     <p>
-                        You agree to indemnify, defend, and hold harmless MontPro and its officers, directors, employees, and agents from any claims, losses, damages, liabilities, and expenses (including legal fees) arising from:
+                        You agree to indemnify, defend, and hold harmless MontPro and its officers, directors,
+                        employees, and agents from any claims, losses, damages, liabilities, and expenses (including
+                        legal fees) arising from:
                     </p>
                     <ul>
                         <li>Your use of the Services</li>
@@ -553,65 +678,80 @@
                 <!-- 12. Dispute Resolution -->
                 <div class="terms-section">
                     <h2>12. Dispute Resolution</h2>
-                    
+
                     <h3>12.1 Informal Resolution</h3>
                     <p>
-                        If you have a dispute with us, please contact us at <a href="mailto:support@aapgrp.com">support@aapgrp.com</a> to attempt to resolve it informally before pursuing formal action.
+                        If you have a dispute with us, please contact us at <a
+                            href="mailto:support@aapgrp.com">support@aapgrp.com</a> to attempt to resolve it informally
+                        before pursuing formal action.
                     </p>
 
                     <h3>12.2 Governing Law</h3>
                     <p>
-                        These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.
+                        These Terms shall be governed by and construed in accordance with the laws of [Your
+                        Jurisdiction], without regard to its conflict of law provisions.
                     </p>
 
                     <h3>12.3 Arbitration</h3>
                     <p>
-                        Any disputes arising from these Terms or the Services shall be resolved through binding arbitration, except that either party may seek injunctive relief in court for violations of intellectual property rights.
+                        Any disputes arising from these Terms or the Services shall be resolved through binding
+                        arbitration, except that either party may seek injunctive relief in court for violations of
+                        intellectual property rights.
                     </p>
 
                     <h3>12.4 Class Action Waiver</h3>
                     <p>
-                        You agree that disputes will be resolved on an individual basis. You waive any right to participate in a class action lawsuit or class-wide arbitration.
+                        You agree that disputes will be resolved on an individual basis. You waive any right to
+                        participate in a class action lawsuit or class-wide arbitration.
                     </p>
                 </div>
 
                 <!-- 13. General Provisions -->
                 <div class="terms-section">
                     <h2>13. General Provisions</h2>
-                    
+
                     <h3>13.1 Modifications to Terms</h3>
                     <p>
-                        We may update these Terms from time to time. We will notify you of material changes via email or through a prominent notice on our platform. Your continued use of the Services after changes take effect constitutes acceptance of the revised Terms.
+                        We may update these Terms from time to time. We will notify you of material changes via email or
+                        through a prominent notice on our platform. Your continued use of the Services after changes
+                        take effect constitutes acceptance of the revised Terms.
                     </p>
 
                     <h3>13.2 Entire Agreement</h3>
                     <p>
-                        These Terms, together with our Privacy Policy, constitute the entire agreement between you and MontPro regarding the Services and supersede all prior agreements.
+                        These Terms, together with our Privacy Policy, constitute the entire agreement between you and
+                        MontPro regarding the Services and supersede all prior agreements.
                     </p>
 
                     <h3>13.3 Severability</h3>
                     <p>
-                        If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.
+                        If any provision of these Terms is found to be invalid or unenforceable, the remaining
+                        provisions will remain in full force and effect.
                     </p>
 
                     <h3>13.4 Waiver</h3>
                     <p>
-                        Our failure to enforce any right or provision of these Terms will not constitute a waiver of such right or provision.
+                        Our failure to enforce any right or provision of these Terms will not constitute a waiver of
+                        such right or provision.
                     </p>
 
                     <h3>13.5 Assignment</h3>
                     <p>
-                        You may not assign or transfer these Terms or your account without our prior written consent. We may assign these Terms without restriction.
+                        You may not assign or transfer these Terms or your account without our prior written consent. We
+                        may assign these Terms without restriction.
                     </p>
 
                     <h3>13.6 Force Majeure</h3>
                     <p>
-                        We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including acts of God, natural disasters, war, terrorism, labor disputes, or government actions.
+                        We shall not be liable for any failure or delay in performance due to circumstances beyond our
+                        reasonable control, including acts of God, natural disasters, war, terrorism, labor disputes, or
+                        government actions.
                     </p>
 
                     <h3>13.7 Export Compliance</h3>
                     <p>
-                        You agree to comply with all applicable export and import laws and regulations in your use of the Services.
+                        You agree to comply with all applicable export and import laws and regulations in your use of
+                        the Services.
                     </p>
                 </div>
 
@@ -634,7 +774,8 @@
                 <!-- Acknowledgment -->
                 <div class="important-notice" style="margin-top: 3rem;">
                     <p>
-                        <strong>By using MontPro, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong>
+                        <strong>By using MontPro, you acknowledge that you have read, understood, and agree to be bound
+                            by these Terms of Service.</strong>
                     </p>
                 </div>
 
@@ -646,18 +787,21 @@
     <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t border-gray-200">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
-            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl" style="background: var(--navy-900);"></div>
-            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl" style="background: var(--blue-500);"></div>
+            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl"
+                style="background: var(--navy-900);"></div>
+            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl"
+                style="background: var(--blue-500);"></div>
         </div>
-        
+
         <div class="container mx-auto px-6 py-12 relative z-10">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                
+
                 <!-- Brand Section (2 columns width) -->
                 <div class="md:col-span-2 space-y-4">
                     <a href="index.html" class="flex items-center space-x-3 group">
-                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                            class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
                         <span class="text-2xl font-bold text-navy-blue">MontPro</span>
                     </a>
                     <p class="text-gray-600 max-w-md leading-relaxed">
@@ -669,41 +813,60 @@
                             <span class="text-sm font-medium" style="color: var(--gray-600);">AI-Powered</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);"></div>
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);">
+                            </div>
                             <span class="text-sm font-medium" style="color: var(--gray-600);">Live & Ready</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Company Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="why.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I Created This</a></li>
-                        <li><a href="pricing.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a></li>
-                        <li><a href="index.html#features" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a></li>
-                        <li><a href="faq.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a></li>
+                        <li><a href="https://ardhipradhana.com" target="_blank"
+                                class="text-sm font-medium transition-colors duration-300"
+                                style="color: var(--teal-500);">About the Founder →</a></li>
+                        <li><a href="why.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I
+                                Created This</a></li>
+                        <li><a href="pricing.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a>
+                        </li>
+                        <li><a href="index.html#features"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a>
+                        </li>
+                        <li><a href="faq.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a>
+                        </li>
                     </ul>
                 </div>
-    
+
                 <!-- Contact & Legal Column -->
                 <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
-                        <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
-                        </a>
-                        
-                        <!-- Legal Links -->
-                        <div class="pt-6 space-y-2">
-                            <a href="privacy.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
-                        </div>
+                    <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
+                    <a href="mailto:support@aapgrp.com"
+                        class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
+                    </a>
+
+                    <!-- Legal Links -->
+                    <div class="pt-6 space-y-2">
+                        <a href="privacy.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy
+                            Policy</a>
+                        <a href="terms.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms
+                            of Service</a>
                     </div>
+                </div>
             </div>
-            
+
             <!-- Bottom Section - Centered -->
             <div class="border-t border-gray-300 pt-8 text-center">
                 <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
@@ -712,10 +875,11 @@
     </footer>
     <!-- Mobile Menu Toggle Script -->
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
     </script>
 
 </body>
+
 </html>

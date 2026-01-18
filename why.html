@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why I Created This | MontPro</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles -->
     <style>
         :root {
             --navy-900: #193A6D;
             --navy-800: #1F4580;
+
+            /* ACCENT - Teal (Signature Color from ardhipradhana.com) */
+            --teal-500: #00D4AA;
+            --teal-400: #2DD4BF;
+            --teal-600: #00B894;
+
             --blue-500: #4A90E2;
             --gray-50: #F8FAFC;
             --gray-100: #F1F5F9;
             --gray-600: #475569;
             --gray-900: #0F172A;
-	    --green: #10B981;
+            --green: #10B981;
             --white: #FFFFFF;
             --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+            --shadow-teal: 0 4px 20px rgba(0, 212, 170, 0.25);
         }
-    
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--gray-900);
         }
-        
-        .text-navy-blue { color: var(--navy-900); }
-        .bg-navy-blue { background-color: var(--navy-900); }
-        
+
+        .text-navy-blue {
+            color: var(--navy-900);
+        }
+
+        .bg-navy-blue {
+            background-color: var(--navy-900);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -54,12 +67,42 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            border: none;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        /* Subtle teal accent line on top of buttons */
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal-500), transparent);
+            opacity: 0.7;
+        }
+
         .btn-primary:hover {
             background-color: var(--navy-800);
             box-shadow: var(--shadow-lg);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .btn-secondary {
@@ -75,7 +118,7 @@
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--gray-50);
             transform: translateY(-1px);
@@ -139,6 +182,7 @@
         }
     </style>
 </head>
+
 <body class="text-off-black">
 
     <!-- =========== HEADER / NAVIGATION =========== -->
@@ -146,48 +190,64 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo - Links to homepage -->
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                    class="h-12 w-auto">
                 <span class="text-2xl font-bold text-navy-blue">MontPro</span>
             </a>
-            
+
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8 ml-48">
-                <a href="index.html#features" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="index.html#features"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Features</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="pricing.html" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="pricing.html"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Pricing</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="mailto:support@aapgrp.com" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="relative transition-all duration-300 group font-medium" style="color: #00D4AA;">
+                    <span class="relative z-10">About the Founder</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                        style="background-color: #00D4AA;"></span>
+                </a>
+                <a href="mailto:support@aapgrp.com"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Contact</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </div>
-            
+
             <!-- CTA Button -->
             <div class="hidden md:flex items-center space-x-3">
                 <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Try It Now
                 </a>
-                
+
                 <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Book a Demo
                 </a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -196,10 +256,17 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-6 py-4 space-y-3">
-                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
-                <a href="pricing.html" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
-                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
-                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+                <a href="index.html#features"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="block font-medium transition duration-300 py-2" style="color: #00D4AA;">About the Founder
+                    →</a>
+                <a href="mailto:support@aapgrp.com"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                    class="btn-primary w-full mt-4">Book a Demo</a>
             </div>
         </div>
     </header>
@@ -207,19 +274,23 @@
     <!-- =========== MAIN CONTENT =========== -->
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-hidden py-16 md:py-20" style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
+        <section class="relative overflow-hidden py-16 md:py-20"
+            style="background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
             <div class="absolute inset-0 overflow-hidden pointer-events-none">
-                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-20" style="background: var(--blue-300);"></div>
-                <div class="absolute bottom-20 left-20 w-96 h-96 rounded-full filter blur-3xl opacity-15" style="background: var(--navy-700);"></div>
+                <div class="absolute top-20 right-20 w-96 h-96 rounded-full filter blur-3xl opacity-20"
+                    style="background: var(--blue-300);"></div>
+                <div class="absolute bottom-20 left-20 w-96 h-96 rounded-full filter blur-3xl opacity-15"
+                    style="background: var(--navy-700);"></div>
             </div>
-            
+
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto">
                     <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" style="color: var(--navy-900);">
                         Why I Created This
                     </h1>
                     <p class="text-lg md:text-xl" style="color: var(--gray-600);">
-                        A personal story from a founder about why finance systems are broken—and what I'm building to fix them.
+                        A personal story from a founder about why finance systems are broken—and what I'm building to
+                        fix them.
                     </p>
                 </div>
             </div>
@@ -228,28 +299,34 @@
         <!-- Story Content -->
         <section class="py-16 md:py-20">
             <div class="container mx-auto px-6 max-w-4xl">
-                
+
                 <!-- Section 1: The Problem I Lived -->
                 <div class="story-section">
                     <h2>The Problem I Lived</h2>
                     <p>
-                        I've spent years implementing financial systems—SAP, NetSuite, Xero, QuickBooks, and more. Each time, the same question: <strong>why is this so complicated?</strong>
+                        I've spent years implementing financial systems—SAP, NetSuite, Xero, QuickBooks, and more. Each
+                        time, the same question: <strong>why is this so complicated?</strong>
                     </p>
                     <p>
-                        Enterprise systems take months to implement and cost tens of thousands annually. The "simpler" options like Xero and QuickBooks are just data repositories—they store your transactions but don't tell you what they mean. Most teams end up working around these systems, not with them.
+                        Enterprise systems take months to implement and cost tens of thousands annually. The "simpler"
+                        options like Xero and QuickBooks are just data repositories—they store your transactions but
+                        don't tell you what they mean. Most teams end up working around these systems, not with them.
                     </p>
                     <p>
                         Here's what really bothered me: <strong>most systems work backwards.</strong>
                     </p>
                     <p>
-                        Teams would manage their numbers in Excel first, then upload clean data at month-end. No real-time visibility. No daily insights. Just backwards workflows that created confusion about which spreadsheet had the right numbers, and business decisions made on outdated information.
+                        Teams would manage their numbers in Excel first, then upload clean data at month-end. No
+                        real-time visibility. No daily insights. Just backwards workflows that created confusion about
+                        which spreadsheet had the right numbers, and business decisions made on outdated information.
                     </p>
                 </div>
 
                 <!-- Highlight Box: The Real Cost -->
                 <div class="highlight-box">
                     <p>
-                        <strong>The real cost was time.</strong> Hours reformatting data instead of analyzing it, validating numbers manually, tracking down the right version of spreadsheets.
+                        <strong>The real cost was time.</strong> Hours reformatting data instead of analyzing it,
+                        validating numbers manually, tracking down the right version of spreadsheets.
                     </p>
                 </div>
 
@@ -257,10 +334,16 @@
                 <div class="story-section">
                     <h2>Genesis</h2>
                     <p>
-                        I was part of the Antler residency program, surrounded by conversations about AI-native tools. But I kept thinking: <strong>the best technology is human-native with AI augmentation to help and empower, not replace.</strong>
-                    </p> 
+                        I was part of the Antler residency program, surrounded by conversations about AI-native tools.
+                        But I kept thinking: <strong>the best technology is human-native with AI augmentation to help
+                            and empower, not replace.</strong>
+                    </p>
                     <p>
-                        There was something else driving this. Several startup fraud cases in Indonesia made headlines—companies hiding numbers from investors, manipulating data, destroying trust. It reinforced what I already believed: <strong>finance needs to be transparent.</strong> When everyone sees the same numbers in real-time—CEOs, finance teams, stakeholders—businesses make better decisions together.
+                        There was something else driving this. Several startup fraud cases in Indonesia made
+                        headlines—companies hiding numbers from investors, manipulating data, destroying trust. It
+                        reinforced what I already believed: <strong>finance needs to be transparent.</strong> When
+                        everyone sees the same numbers in real-time—CEOs, finance teams, stakeholders—businesses make
+                        better decisions together.
                     </p>
                     <p>
                         When information is delayed or filtered, alignment suffers. Real-time visibility fixes that.
@@ -271,10 +354,12 @@
                 <div class="story-section">
                     <h2>What I'm Building</h2>
                     <p>
-                        MontPro is built to solve this: <strong>affordable pricing, real-time analysis, and access for everyone—not just finance teams.</strong>
+                        MontPro is built to solve this: <strong>affordable pricing, real-time analysis, and access for
+                            everyone—not just finance teams.</strong>
                     </p>
                     <p>
-                        The system analyzes data automatically, sends alerts when something's off, and answers questions in plain language. No Excel workarounds. No accounting degree required.
+                        The system analyzes data automatically, sends alerts when something's off, and answers questions
+                        in plain language. No Excel workarounds. No accounting degree required.
                     </p>
                     <p>
                         Business owners should be able to understand their numbers without needing a translator.
@@ -285,10 +370,12 @@
                 <div class="story-section">
                     <h2>Where We Are Now</h2>
                     <p>
-                        MontPro works. It handles AP/AR tracking, generates financial statements automatically, and delivers the core features you need to run a business. I'm testing and improving it daily.
+                        MontPro works. It handles AP/AR tracking, generates financial statements automatically, and
+                        delivers the core features you need to run a business. I'm testing and improving it daily.
                     </p>
                     <p>
-                        Some features are still in development, but what's live today is solid—and costs a fraction of enterprise systems that take months to implement.
+                        Some features are still in development, but what's live today is solid—and costs a fraction of
+                        enterprise systems that take months to implement.
                     </p>
                     <p>
                         We're early, we're improving, and we're building with real user feedback.
@@ -302,7 +389,8 @@
                         When someone uses MontPro, they should feel <strong>empowered.</strong>
                     </p>
                     <p>
-                        Business owners should be able to discuss financials with their teams in real-time, not wait two weeks for reports. Finance shouldn't be gatekept behind complexity or jargon.
+                        Business owners should be able to discuss financials with their teams in real-time, not wait two
+                        weeks for reports. Finance shouldn't be gatekept behind complexity or jargon.
                     </p>
                     <p>
                         If you're running a business, you should understand your numbers. That's why MontPro exists.
@@ -313,18 +401,22 @@
                 <div class="text-center mt-16 pt-8 border-t border-gray-200">
                     <h3 class="text-2xl font-bold text-navy-blue mb-4">Ready to Try It?</h3>
                     <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                        MontPro is live. No long implementation, no enterprise pricing. Just financial intelligence that makes sense.
+                        MontPro is live. No long implementation, no enterprise pricing. Just financial intelligence that
+                        makes sense.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="https://financier.montpro.xyz/" target="_blank" class="btn-primary btn-icon">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                             Try It Now
                         </a>
-                        <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-secondary btn-icon">
+                        <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                            class="btn-secondary btn-icon">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             Book a Demo
                         </a>
@@ -339,18 +431,21 @@
     <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t border-gray-200">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
-            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl" style="background: var(--navy-900);"></div>
-            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl" style="background: var(--blue-500);"></div>
+            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl"
+                style="background: var(--navy-900);"></div>
+            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl"
+                style="background: var(--blue-500);"></div>
         </div>
-        
+
         <div class="container mx-auto px-6 py-12 relative z-10">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                
+
                 <!-- Brand Section (2 columns width) -->
                 <div class="md:col-span-2 space-y-4">
                     <a href="index.html" class="flex items-center space-x-3 group">
-                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                            class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
                         <span class="text-2xl font-bold text-navy-blue">MontPro</span>
                     </a>
                     <p class="text-gray-600 max-w-md leading-relaxed">
@@ -362,41 +457,60 @@
                             <span class="text-sm font-medium" style="color: var(--gray-600);">AI-Powered</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);"></div>
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);">
+                            </div>
                             <span class="text-sm font-medium" style="color: var(--gray-600);">Live & Ready</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Company Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="why.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I Created This</a></li>
-                        <li><a href="pricing.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a></li>
-                        <li><a href="index.html#features" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a></li>
-						<li><a href="faq.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a></li>
+                        <li><a href="https://ardhipradhana.com" target="_blank"
+                                class="text-sm font-medium transition-colors duration-300"
+                                style="color: var(--teal-500);">About the Founder →</a></li>
+                        <li><a href="why.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I
+                                Created This</a></li>
+                        <li><a href="pricing.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a>
+                        </li>
+                        <li><a href="index.html#features"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a>
+                        </li>
+                        <li><a href="faq.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a>
+                        </li>
                     </ul>
                 </div>
-    
+
                 <!-- Contact & Legal Column -->
                 <div class="space-y-4">
-                        <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
-                        <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
-                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
-                        </a>
-                        
-                        <!-- Legal Links -->
-                        <div class="pt-6 space-y-2">
-                            <a href="privacy.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
-                        </div>
+                    <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
+                    <a href="mailto:support@aapgrp.com"
+                        class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
+                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
+                    </a>
+
+                    <!-- Legal Links -->
+                    <div class="pt-6 space-y-2">
+                        <a href="privacy.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Privacy
+                            Policy</a>
+                        <a href="terms.html"
+                            class="block text-sm text-gray-500 hover:text-navy-blue transition-colors duration-300">Terms
+                            of Service</a>
                     </div>
+                </div>
             </div>
-            
+
             <!-- Bottom Section - Centered -->
             <div class="border-t border-gray-300 pt-8 text-center">
                 <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
@@ -406,11 +520,12 @@
 
     <!-- Mobile Menu Toggle Script -->
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
     </script>
 
 </body>
+
 </html>

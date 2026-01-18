@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequently Asked Questions | MontPro</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles -->
     <style>
         :root {
+            /* PRIMARY - Navy (Brand Anchor) */
             --navy-900: #193A6D;
             --navy-800: #1F4580;
             --navy-700: #2B5BA8;
+
+            /* ACCENT - Teal (Signature Color from ardhipradhana.com) */
+            --teal-500: #00D4AA;
+            --teal-400: #2DD4BF;
+            --teal-600: #00B894;
+
+            /* SECONDARY - Bright Blue */
             --blue-500: #4A90E2;
+            --blue-400: #5FA3F5;
             --blue-300: #8BC1FF;
+
+            /* NEUTRAL - Grays */
             --gray-50: #F8FAFC;
             --gray-100: #F1F5F9;
             --gray-600: #475569;
             --gray-900: #0F172A;
+
+            /* FUNCTIONAL */
             --green: #10B981;
+            --orange: #F59E0B;
+
+            /* SURFACE */
             --white: #FFFFFF;
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
             --shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1);
+            --shadow-teal: 0 4px 20px rgba(0, 212, 170, 0.25);
         }
-    
+
         body {
             font-family: 'Inter', sans-serif;
             color: var(--gray-900);
         }
-        
-        .text-navy-blue { color: var(--navy-900); }
-        .bg-navy-blue { background-color: var(--navy-900); }
-        
+
+        .text-navy-blue {
+            color: var(--navy-900);
+        }
+
+        .bg-navy-blue {
+            background-color: var(--navy-900);
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -56,12 +81,42 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            border: none;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        /* Subtle teal accent line on top of buttons */
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal-500), transparent);
+            opacity: 0.7;
+        }
+
         .btn-primary:hover {
             background-color: var(--navy-800);
             box-shadow: var(--shadow-lg);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .btn-secondary {
@@ -77,7 +132,7 @@
             justify-content: center;
             text-decoration: none;
         }
-        
+
         .btn-secondary:hover {
             background-color: var(--gray-50);
             transform: translateY(-1px);
@@ -135,6 +190,7 @@
         }
     </style>
 </head>
+
 <body class="text-off-black bg-gray-50">
 
     <!-- =========== HEADER / NAVIGATION =========== -->
@@ -142,48 +198,64 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo - Links to homepage -->
             <a href="index.html" class="flex items-center space-x-2">
-                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto">
+                <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                    class="h-12 w-auto">
                 <span class="text-2xl font-bold text-navy-blue">MontPro</span>
             </a>
-            
+
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8 ml-48">
-                <a href="index.html#features" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="index.html#features"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Features</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="pricing.html" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="pricing.html"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Pricing</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="mailto:support@aapgrp.com" class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="relative transition-all duration-300 group font-medium" style="color: #00D4AA;">
+                    <span class="relative z-10">About the Founder</span>
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                        style="background-color: #00D4AA;"></span>
+                </a>
+                <a href="mailto:support@aapgrp.com"
+                    class="relative text-gray-600 hover:text-navy-blue transition-all duration-300 group">
                     <span class="relative z-10">Contact</span>
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-navy-blue transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </div>
-            
+
             <!-- CTA Button -->
             <div class="hidden md:flex items-center space-x-3">
                 <a href="https://financier.montpro.xyz/" target="_blank" class="btn-secondary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     Try It Now
                 </a>
-                
+
                 <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary btn-icon">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                     Book a Demo
                 </a>
             </div>
-            
+
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
@@ -192,10 +264,17 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-6 py-4 space-y-3">
-                <a href="index.html#features" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
-                <a href="pricing.html" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
-                <a href="mailto:support@aapgrp.com" class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
-                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-primary w-full mt-4">Book a Demo</a>
+                <a href="index.html#features"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Features</a>
+                <a href="pricing.html"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Pricing</a>
+                <a href="https://ardhipradhana.com" target="_blank"
+                    class="block font-medium transition duration-300 py-2" style="color: #00D4AA;">About the Founder
+                    →</a>
+                <a href="mailto:support@aapgrp.com"
+                    class="block text-gray-600 hover:text-navy-blue transition duration-300 py-2">Contact</a>
+                <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                    class="btn-primary w-full mt-4">Book a Demo</a>
             </div>
         </div>
     </header>
@@ -204,14 +283,15 @@
     <main>
         <!-- Hero Section -->
         <section class="relative overflow-hidden py-16 md:py-20 bg-gray-50">
-            
+
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center max-w-3xl mx-auto">
                     <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" style="color: var(--navy-900);">
                         Frequently Asked Questions
                     </h1>
                     <p class="text-lg md:text-xl" style="color: var(--gray-600);">
-                        Everything you need to know. Can't find your answer? <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">Contact us</a>.
+                        Everything you need to know. Can't find your answer? <a href="mailto:support@aapgrp.com"
+                            class="text-blue-500 hover:underline">Contact us</a>.
                     </p>
                 </div>
             </div>
@@ -220,50 +300,68 @@
         <!-- FAQ Content -->
         <section class="py-16 md:py-20">
             <div class="container mx-auto px-6 max-w-4xl">
-                
+
                 <!-- Category 1: Product & Features -->
                 <div class="faq-category">
                     <h2>Product & Features</h2>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">How is MontPro different from QuickBooks or Xero?</div>
                         <div class="faq-answer">
-                            Unlike conventional accounting systems, MontPro includes FP&A (Financial Planning & Analysis) features such as period comparison and budgeting. MontPro also has AI capabilities to help you forecast financials and answer questions instantly, 24/7. QuickBooks and Xero focus primarily on bookkeeping—MontPro is designed to give you actionable insights, not just store data.
+                            Unlike conventional accounting systems, MontPro includes FP&A (Financial Planning &
+                            Analysis) features such as period comparison and budgeting. MontPro also has AI capabilities
+                            to help you forecast financials and answer questions instantly, 24/7. QuickBooks and Xero
+                            focus primarily on bookkeeping—MontPro is designed to give you actionable insights, not just
+                            store data.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Why not just use Excel + QuickBooks?</div>
                         <div class="faq-answer">
-                            You could. But you'd spend hours updating spreadsheets, manually calculating variance, and trying to forecast runway. MontPro automates this work and provides AI-powered insights—without the busywork. It's designed to replace the Excel workarounds that most finance teams rely on.
+                            You could. But you'd spend hours updating spreadsheets, manually calculating variance, and
+                            trying to forecast runway. MontPro automates this work and provides AI-powered
+                            insights—without the busywork. It's designed to replace the Excel workarounds that most
+                            finance teams rely on.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">What financial reports does MontPro generate?</div>
                         <div class="faq-answer">
-                            MontPro generates the three standard financial statements: Balance Sheet, Income Statement, and Cash Flow Statement. These reports are generated automatically based on your transaction data.
+                            MontPro generates the three standard financial statements: Balance Sheet, Income Statement,
+                            and Cash Flow Statement. These reports are generated automatically based on your transaction
+                            data.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Can I import data from my existing accounting software?</div>
                         <div class="faq-answer">
-                            You can upload CSV files to import transactions from any accounting system. MontPro is designed to be your single source of truth—you're not meant to run multiple systems simultaneously. Export your data from your current software, upload it to MontPro, and start fresh.
+                            You can upload CSV files to import transactions from any accounting system. MontPro is
+                            designed to be your single source of truth—you're not meant to run multiple systems
+                            simultaneously. Export your data from your current software, upload it to MontPro, and start
+                            fresh.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Does MontPro integrate with my bank or payment processors?</div>
                         <div class="faq-answer">
-                            Not yet. Bank connections and payment processor integrations are currently in development. For now, you can upload transaction CSVs from any source. We're focusing on building solid core features before expanding integrations.
+                            Not yet. Bank connections and payment processor integrations are currently in development.
+                            For now, you can upload transaction CSVs from any source. We're focusing on building solid
+                            core features before expanding integrations.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">What integrations are coming next?</div>
                         <div class="faq-answer">
-                            Our next major feature is consolidation for multi-entity companies, followed by bank connections. This will allow businesses with multiple entities to get a unified view of their finances. Want something specific? Email us at <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">support@aapgrp.com</a>—we build based on user feedback.
+                            Our next major feature is consolidation for multi-entity companies, followed by bank
+                            connections. This will allow businesses with multiple entities to get a unified view of
+                            their finances. Want something specific? Email us at <a href="mailto:support@aapgrp.com"
+                                class="text-blue-500 hover:underline">support@aapgrp.com</a>—we build based on user
+                            feedback.
                         </div>
                     </div>
                 </div>
@@ -271,32 +369,42 @@
                 <!-- Category 2: Getting Started -->
                 <div class="faq-category">
                     <h2>Getting Started</h2>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">How long does it take to get started?</div>
                         <div class="faq-answer">
-                            When you sign in, you'll be prompted to create your organization and set up basic information like currency, email, and company name. This takes approximately 2-3 minutes. After that, you're ready to start using MontPro.
+                            When you sign in, you'll be prompted to create your organization and set up basic
+                            information like currency, email, and company name. This takes approximately 2-3 minutes.
+                            After that, you're ready to start using MontPro.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">I'm a founder, not a finance person. Can I still use this?</div>
                         <div class="faq-answer">
-                            Yes. MontPro is designed for non-finance founders. The AP/AR (Accounts Payable/Receivable) tracking requires no accounting knowledge—simply mark whether money is coming in or going out, add a description, and you're done. For more advanced features like GL (General Ledger) entries, basic accounting knowledge helps, but our AI assistant can guide you through the process.
+                            Yes. MontPro is designed for non-finance founders. The AP/AR (Accounts Payable/Receivable)
+                            tracking requires no accounting knowledge—simply mark whether money is coming in or going
+                            out, add a description, and you're done. For more advanced features like GL (General Ledger)
+                            entries, basic accounting knowledge helps, but our AI assistant can guide you through the
+                            process.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Do I need accounting knowledge to use MontPro?</div>
                         <div class="faq-answer">
-                            Basic accounting knowledge is helpful if you plan to input GL transactions, as you'll need to create simple journal entries. However, if you only use the AP/AR tracking feature, no accounting knowledge is required—it's as simple as recording whether money is coming in or going out, along with a reference and description.
+                            Basic accounting knowledge is helpful if you plan to input GL transactions, as you'll need
+                            to create simple journal entries. However, if you only use the AP/AR tracking feature, no
+                            accounting knowledge is required—it's as simple as recording whether money is coming in or
+                            going out, along with a reference and description.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Can I upload historical data?</div>
                         <div class="faq-answer">
-                            Yes. You can upload historical transaction data via CSV file to get a complete view of your financial history in MontPro.
+                            Yes. You can upload historical transaction data via CSV file to get a complete view of your
+                            financial history in MontPro.
                         </div>
                     </div>
                 </div>
@@ -304,18 +412,24 @@
                 <!-- Category 3: For Small Businesses -->
                 <div class="faq-category">
                     <h2>For Small Businesses</h2>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">My company is too small—is MontPro right for me?</div>
                         <div class="faq-answer">
-                            MontPro is built for businesses from $500K to $10M in revenue. If you're currently managing finances in spreadsheets and need clarity on cash flow and runway, you're our ideal user—whether you're a team of 2 or 50. Small businesses need financial clarity just as much as larger companies, and MontPro makes that accessible without enterprise complexity or cost.
+                            MontPro is built for businesses from $500K to $10M in revenue. If you're currently managing
+                            finances in spreadsheets and need clarity on cash flow and runway, you're our ideal
+                            user—whether you're a team of 2 or 50. Small businesses need financial clarity just as much
+                            as larger companies, and MontPro makes that accessible without enterprise complexity or
+                            cost.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Do I need to migrate everything at once?</div>
                         <div class="faq-answer">
-                            No. You can start with AP/AR tracking only and gradually add GL entries as you become more comfortable with the system. Many users begin with cash flow visibility and expand from there. There's no requirement to migrate all your financial data immediately.
+                            No. You can start with AP/AR tracking only and gradually add GL entries as you become more
+                            comfortable with the system. Many users begin with cash flow visibility and expand from
+                            there. There's no requirement to migrate all your financial data immediately.
                         </div>
                     </div>
                 </div>
@@ -323,25 +437,29 @@
                 <!-- Category 4: Security & Data -->
                 <div class="faq-category">
                     <h2>Security & Data</h2>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">Is my financial data secure?</div>
                         <div class="faq-answer">
-                            Yes. MontPro uses Supabase, a secure and reliable database platform, to host and protect your financial data. Your data is encrypted and stored with industry-standard security protocols.
+                            Yes. MontPro uses Supabase, a secure and reliable database platform, to host and protect
+                            your financial data. Your data is encrypted and stored with industry-standard security
+                            protocols.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Can I export my data anytime?</div>
                         <div class="faq-answer">
-                            Yes. You can export your data to CSV format anytime. For GL transactions, you can also export transaction vouchers to PDF. Your data is always accessible and portable.
+                            Yes. You can export your data to CSV format anytime. For GL transactions, you can also
+                            export transaction vouchers to PDF. Your data is always accessible and portable.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-question">Is MontPro compliant with Indonesian accounting standards?</div>
                         <div class="faq-answer">
-                            Yes. MontPro follows standard accounting principles and generates financial statements that comply with Indonesian reporting requirements.
+                            Yes. MontPro follows standard accounting principles and generates financial statements that
+                            comply with Indonesian reporting requirements.
                         </div>
                     </div>
                 </div>
@@ -349,67 +467,90 @@
                 <!-- Category 5: Pricing & Support -->
                 <div class="faq-category">
                     <h2>Pricing & Support</h2>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">How much does MontPro cost?</div>
                         <div class="faq-answer">
-                            MontPro is currently IDR 999,000/month during our early adopter period (valid until March 31, 2026). This includes full Enterprise-tier access with all features. You get a 14-day free trial to start — no credit card required.
+                            MontPro is currently IDR 999,000/month during our early adopter period (valid until March
+                            31, 2026). This includes full Enterprise-tier access with all features. You get a 14-day
+                            free trial to start — no credit card required.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">What happens after March 31, 2026?</div>
                         <div class="faq-answer">
                             After March 31, 2026, MontPro will have three pricing tiers:
                             <ul style="margin-top: 8px; margin-left: 20px; list-style-type: disc;">
-                                <li><strong>Basic (IDR 1.5M/month):</strong> Dashboard, AP/AR tracking, basic budgeting</li>
-                                <li><strong>Pro (IDR 3M/month):</strong> All Basic features + reports, analytics, AI forecasting (current year)</li>
-                                <li><strong>Enterprise (IDR 5M/month):</strong> All Pro features + multi-year forecasting, scenario analysis, benchmarking</li>
+                                <li><strong>Basic (IDR 1.5M/month):</strong> Dashboard, AP/AR tracking, basic budgeting
+                                </li>
+                                <li><strong>Pro (IDR 3M/month):</strong> All Basic features + reports, analytics, AI
+                                    forecasting (current year)</li>
+                                <li><strong>Enterprise (IDR 5M/month):</strong> All Pro features + multi-year
+                                    forecasting, scenario analysis, benchmarking</li>
                             </ul>
                             <br>
-                            <strong>Good news:</strong> If you join before March 31, 2026, you lock in IDR 999K/month forever and get full Enterprise access — even when new customers pay IDR 5M/month.
+                            <strong>Good news:</strong> If you join before March 31, 2026, you lock in IDR 999K/month
+                            forever and get full Enterprise access — even when new customers pay IDR 5M/month.
                         </div>
                     </div>
-                    
+
                     <div class="faq-item">
                         <div class="faq-question">Will my price increase if I join now?</div>
                         <div class="faq-answer">
-                            No. Early adopters who join before March 31, 2026 lock in IDR 999,000/month permanently. Your price will never increase, even as we add more features and new customers pay up to IDR 4,999,000/month. This guarantee applies as long as you maintain your subscription.
+                            No. Early adopters who join before March 31, 2026 lock in IDR 999,000/month permanently.
+                            Your price will never increase, even as we add more features and new customers pay up to IDR
+                            4,999,000/month. This guarantee applies as long as you maintain your subscription.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">What if I cancel and rejoin later?</div>
                         <div class="faq-answer">
-                            If you cancel before March 31, 2026 and rejoin during the early adopter period, you can get the IDR 999K/month rate back. However, if you cancel and rejoin after March 31, 2026, you'll pay the new tier pricing (starting at IDR 1.5M/month). We recommend staying subscribed to keep your locked-in rate.
+                            If you cancel before March 31, 2026 and rejoin during the early adopter period, you can get
+                            the IDR 999K/month rate back. However, if you cancel and rejoin after March 31, 2026, you'll
+                            pay the new tier pricing (starting at IDR 1.5M/month). We recommend staying subscribed to
+                            keep your locked-in rate.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">How does the 14-day free trial work?</div>
                         <div class="faq-answer">
-                            Sign up and get full access to all Enterprise features for 14 days — completely free. No credit card required to start. After the trial, you'll be charged IDR 999,000/month if you choose to continue. You can cancel anytime during or after the trial.
+                            Sign up and get full access to all Enterprise features for 14 days — completely free. No
+                            credit card required to start. After the trial, you'll be charged IDR 999,000/month if you
+                            choose to continue. You can cancel anytime during or after the trial.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">Can I cancel anytime?</div>
                         <div class="faq-answer">
-                            Yes. There are no long-term contracts or commitments. You can cancel your subscription at any time. However, remember that if you cancel and rejoin after March 31, 2026, you'll lose the early adopter pricing and pay the new tier rates.
+                            Yes. There are no long-term contracts or commitments. You can cancel your subscription at
+                            any time. However, remember that if you cancel and rejoin after March 31, 2026, you'll lose
+                            the early adopter pricing and pay the new tier rates.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">What support do you offer?</div>
                         <div class="faq-answer">
-                            You can email us at <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">support@aapgrp.com</a> or book a demo/support call at <a href="https://www.montpro.xyz" class="text-blue-500 hover:underline">www.montpro.xyz</a>. We provide email support and scheduled calls to help you get the most out of MontPro.
+                            You can email us at <a href="mailto:support@aapgrp.com"
+                                class="text-blue-500 hover:underline">support@aapgrp.com</a> or book a demo/support call
+                            at <a href="https://www.montpro.xyz"
+                                class="text-blue-500 hover:underline">www.montpro.xyz</a>. We provide email support and
+                            scheduled calls to help you get the most out of MontPro.
                         </div>
                     </div>
-                
+
                     <div class="faq-item">
                         <div class="faq-question">Do you offer custom development?</div>
                         <div class="faq-answer">
-                            Yes. Beyond our standard features, we can build custom reports, dashboards, or specialized integrations for your business. Custom development is priced separately based on scope and development time. Contact us at <a href="mailto:support@aapgrp.com" class="text-blue-500 hover:underline">support@aapgrp.com</a> to discuss your requirements.
+                            Yes. Beyond our standard features, we can build custom reports, dashboards, or specialized
+                            integrations for your business. Custom development is priced separately based on scope and
+                            development time. Contact us at <a href="mailto:support@aapgrp.com"
+                                class="text-blue-500 hover:underline">support@aapgrp.com</a> to discuss your
+                            requirements.
                         </div>
                     </div>
                 </div>
@@ -423,13 +564,16 @@
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="mailto:support@aapgrp.com" class="btn-primary btn-icon">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             Email Support
                         </a>
-                        <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank" class="btn-secondary btn-icon">
+                        <a href="https://calendar.app.google/39ZRiHpqjpJsbXbZ6" target="_blank"
+                            class="btn-secondary btn-icon">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
                             Book a Demo
                         </a>
@@ -443,18 +587,21 @@
     <!-- =========== FOOTER =========== -->
     <footer class="bg-white border-t border-gray-200">
         <div class="absolute inset-0 opacity-5 pointer-events-none">
-            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl" style="background: var(--navy-900);"></div>
-            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl" style="background: var(--blue-500);"></div>
+            <div class="absolute top-10 left-1/4 w-32 h-32 rounded-full filter blur-xl"
+                style="background: var(--navy-900);"></div>
+            <div class="absolute bottom-10 right-1/3 w-24 h-24 rounded-full filter blur-xl"
+                style="background: var(--blue-500);"></div>
         </div>
-        
+
         <div class="container mx-auto px-6 py-12 relative z-10">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-                
+
                 <!-- Brand Section -->
                 <div class="md:col-span-2 space-y-4">
                     <a href="index.html" class="flex items-center space-x-3 group">
-                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo" class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro Logo"
+                            class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
                         <span class="text-2xl font-bold text-navy-blue">MontPro</span>
                     </a>
                     <p class="text-gray-600 max-w-md leading-relaxed">
@@ -466,44 +613,63 @@
                             <span class="text-sm font-medium" style="color: var(--gray-600);">AI-Powered</span>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);"></div>
+                            <div class="w-2 h-2 rounded-full animate-pulse" style="background-color: var(--blue-500);">
+                            </div>
                             <span class="text-sm font-medium" style="color: var(--gray-600);">Live & Ready</span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Company Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-navy-blue">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="why.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I Created This</a></li>
-                        <li><a href="pricing.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a></li>
-                        <li><a href="index.html#features" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a></li>
-                        <li><a href="faq.html" class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a></li>
+                        <li><a href="https://ardhipradhana.com" target="_blank"
+                                class="text-sm font-medium transition-colors duration-300"
+                                style="color: var(--teal-500);">About the Founder →</a></li>
+                        <li><a href="why.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Why I
+                                Created This</a></li>
+                        <li><a href="pricing.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Pricing</a>
+                        </li>
+                        <li><a href="index.html#features"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Features</a>
+                        </li>
+                        <li><a href="faq.html"
+                                class="text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">FAQ</a>
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Contact & Legal Column -->
                 <div class="space-y-4">
                     <h3 class="text-lg font-semibold text-navy-blue">Get in Touch</h3>
-                    <a href="mailto:support@aapgrp.com" class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
+                    <a href="mailto:support@aapgrp.com"
+                        class="flex items-center space-x-2 text-gray-600 hover:text-navy-blue transition-colors duration-300 group">
                         <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
                         </svg>
                         <span class="text-sm font-medium leading-none">support@aapgrp.com</span>
                     </a>
-                    
+
                     <!-- Legal Links -->
                     <div class="pt-4 space-y-4">
                         <h3 class="text-lg font-semibold text-navy-blue">Legal</h3>
                         <div class="space-y-2">
-                            <a href="privacy.html" class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Terms of Service</a>
+                            <a href="privacy.html"
+                                class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Privacy
+                                Policy</a>
+                            <a href="terms.html"
+                                class="block text-sm text-gray-600 hover:text-navy-blue transition-colors duration-300">Terms
+                                of Service</a>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Bottom Section - Centered -->
             <div class="border-t border-gray-300 pt-8 text-center">
                 <p class="text-sm text-gray-500">© 2025 MontPro.xyz. All Rights Reserved.</p>
@@ -511,13 +677,594 @@
         </div>
     </footer>
 
+    <!-- =========== CHATBOT WIDGET =========== -->
+
+    <!-- Chat Bubble Button -->
+    <button id="chat-bubble"
+        class="fixed bottom-4 right-6 z-50 bg-navy-blue text-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl hover:scale-105 transition-all duration-300 pulse-active"
+        aria-label="Open chat">
+        <!-- Chat Icon -->
+        <svg id="chat-icon" class="w-7 h-7 transition-all duration-200" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+        <!-- Close Icon (hidden initially) -->
+        <svg id="close-icon" class="w-7 h-7 hidden transition-all duration-200" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <!-- Chat Window -->
+    <div id="chat-window"
+        class="fixed bottom-4 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl overflow-hidden shadow-2xl border-0 hidden flex-col transition-all duration-300"
+        style="font-family: 'Inter', sans-serif; height: calc(100vh - 7rem); max-height: calc(100vh - 7rem);">
+
+        <!-- Chat Header -->
+        <div class="bg-navy-blue text-white p-4 flex items-center justify-between rounded-t-2xl">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                    <img src="ChatGPT_Image_Apr_30__2025__01_18_48_PM-removebg-preview.png" alt="MontPro"
+                        class="h-7 w-7">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm">Monty</h4>
+                    <p class="text-xs opacity-90">Your MontPro AI Assistant</p>
+                </div>
+            </div>
+            <button id="close-chat" class="text-white hover:bg-white hover:bg-opacity-20 rounded-lg p-2 transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+            <!-- Welcome Message -->
+            <div class="flex items-start animate-fadeIn">
+                <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative"
+                    style="background-color: #E8F4FF;">
+                    <p class="text-[12px] text-gray-800 leading-relaxed mb-2">Hello! I'm Monty, your MontPro assistant.
+                        I can help you:</p>
+
+                    <!-- Quick Action Buttons -->
+                    <div class="flex flex-wrap gap-2 mt-2 mb-1">
+                        <button onclick="handleQuickAction('try')" class="quick-action-btn">
+                            Try the Dashboard
+                        </button>
+                        <button onclick="handleQuickAction('demo')" class="quick-action-btn">
+                            Book a Demo
+                        </button>
+                        <button onclick="handleQuickAction('pricing')" class="quick-action-btn">
+                            See Pricing
+                        </button>
+                    </div>
+
+                    <!-- Timestamp AFTER buttons -->
+                    <p class="text-[10px] text-gray-500 text-right message-time mt-1" id="welcome-timestamp"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAVE BUTTON MOVED HERE - Outside messages div -->
+        <button id="save-chat-btn"
+            class="absolute bottom-[7.5rem] right-[1rem] bg-white/70 backdrop-blur-sm hover:bg-white hover:scale-110 rounded-full p-2.5 shadow-lg transition-all duration-300 z-20 group"
+            title="Save Chat" aria-label="Save chat as PDF">
+            <svg class="w-4 h-4 text-navy-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+            </svg>
+            <!-- Tooltip -->
+            <span
+                class="absolute right-full mr-2 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                Save Chat
+            </span>
+        </button>
+
+        <!-- Chat Input Area -->
+        <div class="border-t border-gray-200 bg-white rounded-b-2xl">
+            <!-- Input Row -->
+            <div class="px-4 pt-4 pb-3">
+                <div class="flex items-end space-x-2">
+                    <button id="attach-button"
+                        class="text-gray-500 hover:text-navy-blue border border-gray-300 hover:border-navy-blue rounded-full w-10 h-10 flex items-center justify-center transition-all flex-shrink-0"
+                        title="Attach file">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                        </svg>
+                    </button>
+                    <textarea id="chat-input" rows="1" placeholder="Ask anything about MontPro..."
+                        class="flex-1 resize-none border border-gray-300 rounded-xl px-4 py-2.5 text-[12px] focus:outline-none focus:border-navy-blue focus:ring-1 focus:ring-navy-blue transition-all"
+                        style="max-height: 100px;"></textarea>
+                    <button id="send-button"
+                        class="bg-navy-blue text-white rounded-xl w-10 h-10 flex items-center justify-center hover:bg-opacity-90 transition-all flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Branding Badge Row -->
+            <div class="px-4 pb-3 flex justify-center">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold"
+                    style="background: linear-gradient(135deg, #4A90E2 0%, #193A6D 100%); color: white;">
+                    <span>Powered by MontPro AI</span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+
     <!-- Mobile Menu Toggle Script -->
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // =========== CHATBOT FUNCTIONALITY ===========
+        (function () {
+            const chatBubble = document.getElementById('chat-bubble');
+            const chatWindow = document.getElementById('chat-window');
+            const chatMessages = document.getElementById('chat-messages');
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-button');
+            const chatIcon = document.getElementById('chat-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            let isOpen = false;
+
+            // Stop pulse animation after 7.5 seconds (3 cycles × 2.5s)
+            setTimeout(() => {
+                if (chatBubble) chatBubble.classList.remove('pulse-active');
+            }, 7500);
+
+            // Toggle chat window
+            function toggleChat() {
+                isOpen = !isOpen;
+
+                if (isOpen) {
+                    chatWindow.classList.remove('hidden');
+                    chatWindow.classList.add('flex');
+                    chatBubble.style.display = 'none'; // Hide bubble when chat opens
+                    chatInput.focus();
+                } else {
+                    chatWindow.classList.add('hidden');
+                    chatWindow.classList.remove('flex');
+                    chatBubble.style.display = 'flex'; // Show bubble when chat closes
+                }
+            }
+
+            // Add user message to chat
+            function addUserMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-start justify-end animate-fadeIn';
+
+                const timestamp = new Date().toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+
+                messageDiv.innerHTML = `
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%] relative">
+                <p class="text-[12px] leading-relaxed mb-1">${escapeHtml(message)}</p>
+                <p class="text-[10px] text-white/60 text-right message-time">${timestamp}</p>
+            </div>
+        `;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            // Add bot message to chat
+            function addBotMessage(message, followUpQuestions = []) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-start animate-fadeIn';
+
+                const timestamp = new Date().toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+
+                // Convert markdown to HTML
+                const formattedMessage = marked.parse(message);
+
+                let followUpHTML = '';
+                if (followUpQuestions && followUpQuestions.length > 0) {
+                    followUpHTML = '<div class="flex flex-col gap-2 mt-2 mb-1">';
+                    followUpQuestions.forEach(question => {
+                        followUpHTML += `<button class="follow-up-button" onclick="handleFollowUpClick('${escapeHtml(question)}')">${escapeHtml(question)}</button>`;
+                    });
+                    followUpHTML += '</div>';
+                }
+
+                messageDiv.innerHTML = `
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm max-w-[85%] relative" style="background-color: #E8F4FF;">
+                <div class="text-[12px] text-gray-800 leading-relaxed markdown-content mb-1">${formattedMessage}</div>
+                ${followUpHTML}
+                <p class="text-[10px] text-gray-500 text-right message-time mt-1">${timestamp}</p>
+            </div>
+        `;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            // Add typing indicator
+            function addTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.id = 'typing-indicator';
+                typingDiv.className = 'flex items-start animate-fadeIn';
+                typingDiv.innerHTML = `
+            <div class="rounded-2xl rounded-tl-none p-2.5 shadow-sm" style="background-color: #E8F4FF;">
+                <div class="flex space-x-1 typing-indicator">
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                </div>
+            </div>
+        `;
+                chatMessages.appendChild(typingDiv);
+                scrollToBottom();
+            }
+
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+            // Send message to backend
+            async function sendMessage(message) {
+                addUserMessage(message);
+                addTypingIndicator();
+
+                try {
+                    const response = await fetch('https://montpro.app.n8n.cloud/webhook/landing-page-chatbot', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: message,
+                            type: 'text'
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    removeTypingIndicator();
+
+                    // Handle response from backend - array format with output field
+                    const responseData = Array.isArray(data) ? data[0] : data;
+                    let outputText = responseData.output || responseData.message || "I received your message. How can I help you?";
+
+                    // Strip markdown code blocks if present
+                    outputText = outputText.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+
+                    // Try to parse as JSON if it looks like JSON
+                    let botMessage = outputText;
+                    let followUps = [];
+
+                    try {
+                        if (outputText.startsWith('{')) {
+                            const parsed = JSON.parse(outputText);
+                            botMessage = parsed.output || outputText;
+                            followUps = parsed.followUpQuestions || [];
+                        } else {
+                            // Fallback to original structure
+                            followUps = responseData.followUpQuestions || [];
+                        }
+                    } catch (e) {
+                        // If parsing fails, use as-is
+                        console.log('Response is not JSON, using as plain text');
+                        followUps = responseData.followUpQuestions || [];
+                    }
+
+                    addBotMessage(botMessage, followUps);
+
+                } catch (error) {
+                    removeTypingIndicator();
+                    console.error('Chat error:', error);
+                    addBotMessage('Sorry, I encountered an error. Please try again or contact us at support@aapgrp.com');
+                }
+            }
+
+            // Handle follow-up question click
+            window.handleFollowUpClick = function (question) {
+                // Remove HTML entities if any
+                const cleanQuestion = question.replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+                sendMessage(cleanQuestion);
+            };
+
+            // Handle send button click
+            function handleSend() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    sendMessage(message);
+                    chatInput.value = '';
+                    chatInput.style.height = '40px';
+                }
+            }
+
+            // Auto-resize textarea
+            function autoResizeTextarea() {
+                chatInput.style.height = 'auto';
+                const newHeight = chatInput.scrollHeight;
+
+                // If empty or very small, keep at minimum (single row)
+                if (chatInput.value.trim() === '' || newHeight <= 40) {
+                    chatInput.style.height = '40px'; // Reset to single line height
+                } else {
+                    chatInput.style.height = Math.min(newHeight, 100) + 'px';
+                }
+            }
+
+            // Scroll to bottom of messages
+            function scrollToBottom() {
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Escape HTML to prevent XSS
+            function escapeHtml(text) {
+                const map = {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#039;'
+                };
+                return text.replace(/[&<>"']/g, m => map[m]);
+            }
+
+            // Event listeners
+            if (chatBubble) chatBubble.addEventListener('click', toggleChat);
+            if (document.getElementById('close-chat')) document.getElementById('close-chat').addEventListener('click', toggleChat);
+            if (sendButton) sendButton.addEventListener('click', handleSend);
+
+            if (chatInput) {
+                chatInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSend();
+                    }
+                });
+                chatInput.addEventListener('input', autoResizeTextarea);
+            }
+
+            // File attachment functionality
+            if (document.getElementById('attach-button')) {
+                document.getElementById('attach-button').addEventListener('click', () => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*,.pdf';
+                    input.multiple = false; // Set to true if you want multiple files
+
+                    input.onchange = async (e) => {
+                        const file = e.target.files[0];
+                        if (!file) return;
+
+                        // Validate file size (max 10MB)
+                        const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+                        if (file.size > maxSize) {
+                            addBotMessage('Sorry, file size must be under 10MB. Please try a smaller file.');
+                            return;
+                        }
+
+                        // Show file being uploaded
+                        addFilePreview(file);
+                        addTypingIndicator();
+
+                        // Send to backend
+                        await sendFileToBackend(file);
+                    };
+
+                    input.click();
+                });
+            }
+
+            // Add this to your existing chatbot script
+            const saveBtn = document.getElementById('save-chat-btn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', async function () {
+                    // Get all messages
+                    const messages = [];
+                    const messageElements = document.querySelectorAll('#chat-messages > div:not(#typing-indicator)');
+
+                    messageElements.forEach(el => {
+                        const isUser = el.querySelector('.bg-navy-blue');
+                        const text = el.querySelector('p').textContent;
+                        const time = el.querySelector('.message-time')?.textContent || '';
+
+                        messages.push({
+                            sender: isUser ? 'You' : 'Monty',
+                            text: text,
+                            time: time
+                        });
+                    });
+
+                    // Generate PDF
+                    await generateChatPDF(messages);
+                });
+            }
+
+            // Add this at the end of your chatbot script, inside the IIFE
+            const timestampEl = document.getElementById('welcome-timestamp');
+            if (timestampEl) {
+                timestampEl.textContent = new Date().toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                });
+            }
+
+            window.handleQuickAction = function (action) {
+                let message = '';
+
+                switch (action) {
+                    case 'try':
+                        message = "I'd like to try the tool";
+                        break;
+                    case 'demo':
+                        message = "I want to book a demo";
+                        break;
+                    case 'pricing':
+                        message = "Show me the pricing";
+                        break;
+                }
+
+                sendMessage(message);
+            };
+
+            async function generateChatPDF(messages) {
+                // Using jsPDF library (add to your page)
+                if (!window.jspdf) {
+                    console.error('jsPDF library not loaded');
+                    alert('PDF generation not available currently.');
+                    return;
+                }
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Header
+                doc.setFontSize(20);
+                doc.setTextColor(25, 58, 109); // Navy blue
+                doc.text('MontPro Chat Transcript', 20, 20);
+
+                doc.setFontSize(10);
+                doc.setTextColor(100);
+                doc.text(`Exported: ${new Date().toLocaleString()}`, 20, 28);
+
+                // Messages
+                let y = 40;
+                doc.setFontSize(11);
+
+                messages.forEach(msg => {
+                    // Check if need new page
+                    if (y > 270) {
+                        doc.addPage();
+                        y = 20;
+                    }
+
+                    // Sender name (bold)
+                    doc.setFont(undefined, 'bold');
+                    doc.setTextColor(25, 58, 109);
+                    doc.text(`${msg.sender}:`, 20, y);
+
+                    // Message text
+                    doc.setFont(undefined, 'normal');
+                    doc.setTextColor(0);
+                    const lines = doc.splitTextToSize(msg.text, 170);
+                    doc.text(lines, 20, y + 5);
+
+                    // Time
+                    doc.setFontSize(8);
+                    doc.setTextColor(150);
+                    doc.text(msg.time, 20, y + 5 + (lines.length * 5) + 2);
+
+                    doc.setFontSize(11);
+                    y += 5 + (lines.length * 5) + 8;
+                });
+
+                // Footer
+                doc.setFontSize(8);
+                doc.setTextColor(150);
+                doc.text('Powered by MontPro AI', 105, 290, { align: 'center' });
+
+                // Download
+                doc.save(`MontPro-Chat-${new Date().toISOString().split('T')[0]}.pdf`);
+            }
+
+            // Add file preview message
+            function addFilePreview(file) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'flex items-start justify-end animate-fadeIn';
+
+                const fileIcon = file.type.includes('image') ? '🖼️' : '📄';
+                const fileSize = (file.size / 1024).toFixed(1) + ' KB';
+
+                messageDiv.innerHTML = `
+            <div class="bg-navy-blue text-white rounded-2xl rounded-tr-none p-2.5 shadow-sm max-w-[85%]">
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg">${fileIcon}</span>
+                    <div>
+                        <p class="text-[12px] font-medium">${escapeHtml(file.name)}</p>
+                        <p class="text-[10px] opacity-75">${fileSize}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+                chatMessages.appendChild(messageDiv);
+                scrollToBottom();
+            }
+
+            // Send file to backend
+            async function sendFileToBackend(file) {
+                try {
+                    // Convert file to base64 for JSON payload
+                    const base64Data = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            const base64 = reader.result.split(',')[1]; // Remove data URL prefix
+                            resolve(base64);
+                        };
+                        reader.onerror = () => reject(new Error('Failed to read file'));
+                        reader.readAsDataURL(file);
+                    });
+
+                    // Send as JSON payload
+                    const response = await fetch('https://montpro.app.n8n.cloud/webhook/landing-page-chatbot', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            type: 'file',
+                            filename: file.name,
+                            fileType: file.type,
+                            fileSize: file.size,
+                            fileData: base64Data
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+
+                    removeTypingIndicator();
+
+                    // Handle response from backend
+                    addBotMessage(
+                        data.message || "I've received your file. How can I help you with it?",
+                        data.followUpQuestions || []
+                    );
+
+                } catch (error) {
+                    removeTypingIndicator();
+                    console.error('File upload error:', error);
+                    addBotMessage('Sorry, there was an error uploading your file. Please try again or contact support at support@aapgrp.com');
+                }
+            }
+
+        })();
+    </script>
 
 </body>
+
 </html>
